@@ -8,14 +8,9 @@ import org.junit.*
  * @author Dean Bassett
  */
 class KBukkitRunnableTest {
-    lateinit var runnable: KBukkitRunnable;
     @Before
     fun setUp() {
         KBukkitPlugin(FakeServer);
-
-        runnable = KBukkitRunnable {
-            FakeServer.logger.info("KBukkit has been run successfully!")
-        }
     }
 
     @After
@@ -24,6 +19,8 @@ class KBukkitRunnableTest {
 
     @Test
     fun testRunTask() {
-        runnable.runTask(KBukkitPlugin.instance)
+        KBukkitRunnable {
+            FakeServer.logger.info("KBukkit has been run successfully!")
+        }.runTask(KBukkitPlugin.instance)
     }
 }

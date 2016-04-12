@@ -1,0 +1,11 @@
+# Useless project/compiled files
+*.class
+*.iml
+.idea/*
+*.xml
+
+# Keep the pom.xml
+!pom.xml
+
+# Remove misc log files
+*.txt

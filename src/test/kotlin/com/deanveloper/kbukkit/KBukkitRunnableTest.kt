@@ -8,19 +8,19 @@ import org.junit.*
  * @author Dean Bassett
  */
 class KBukkitRunnableTest {
-    @Before
-    fun setUp() {
-        KBukkitPlugin(FakeServer);
-    }
+	@Before
+	fun setUp() {
+		KBukkitPlugin(FakeServer);
+	}
 
-    @After
-    fun tearDown() {
-    }
+	@After
+	fun tearDown() {
+	}
 
-    @Test
-    fun testRunTask() {
-        KBukkitRunnable {
-            FakeServer.logger.info("KBukkit has been run successfully!")
-        }.runTask(KBukkitPlugin.instance)
-    }
+	@Test
+	fun testRunTask() {
+		KBukkitRunnable {
+			FakeServer.logger.info("KBukkit has been run successfully!")
+		}.runTask(KBukkitPlugin.instance)
+	}
 }

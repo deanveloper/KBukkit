@@ -14,6 +14,8 @@ import java.util.logging.Level
  * from the config without needing to do getConfig(), and used
  * Kotlin null-safety features to make it easier to use.
  *
+ * @property[plugin]    Your plugin
+ * @property[fileName]  The file name of your config.
  * @author Dean Bassett
  */
 open class KConfig(val plugin: Plugin, val fileName: String) {
@@ -23,7 +25,25 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
         private set;
 
     init {
-        this.configFile = File(plugin.dataFolder!!, fileName);
+        if (fileName == "testingUseOnlyDoNotUseThisAsAnInputPlease") {
+            this.configFile = File.createTempFile("config", ".yml");
+            /*this.configFile.writeText("""
+            |integer: 0
+            |double: 0.00002
+            |string: 'this is a string'
+            |boolean: true
+            |color: /color/
+            |itemStack: /itemStack/
+            |vector: /vector/
+            |offlinePlayer: /offlinePlayer/
+            |listOfInts:
+            |  - 3
+            |  - 2
+            """.trimMargin());*/
+        } else {
+            this.configFile = File(plugin.dataFolder!!, fileName);
+        }
+
         saveDefault();
         reload();
     }
@@ -47,7 +67,10 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
         config = YamlConfiguration.loadConfiguration(configFile)!!;
 
         // Look for defaults in the jar
-        config.defaults = YamlConfiguration.loadConfiguration(plugin.getResource(fileName).reader());
+        val defaults = plugin.getResource(fileName);
+        if (defaults != null) {
+            config.defaults = YamlConfiguration.loadConfiguration(defaults.reader());
+        }
     }
 
     fun save(): Unit {
@@ -62,6 +85,10 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
         if (!configFile.exists()) {
             plugin.saveResource(fileName, false);
         }
+    }
+
+    override fun toString(): String {
+        return config.toString();
     }
 }
 

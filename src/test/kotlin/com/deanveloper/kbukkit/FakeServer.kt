@@ -9,6 +9,7 @@ import org.bukkit.command.ConsoleCommandSender
 import org.bukkit.command.PluginCommand
 import org.bukkit.conversations.Conversation
 import org.bukkit.conversations.ConversationAbandonedEvent
+import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.*
 import org.bukkit.event.Event
 import org.bukkit.event.EventPriority
@@ -19,6 +20,7 @@ import org.bukkit.generator.BlockPopulator
 import org.bukkit.generator.ChunkGenerator
 import org.bukkit.help.HelpMap
 import org.bukkit.inventory.*
+import org.bukkit.inventory.meta.ItemMeta
 import org.bukkit.map.MapView
 import org.bukkit.metadata.MetadataValue
 import org.bukkit.permissions.Permissible
@@ -112,11 +114,11 @@ object FakeServer : Server {
     }
 
     override fun getUpdateFolderFile(): File {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun isHardcore(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getPlayer(string: String): Player? {
@@ -145,63 +147,63 @@ object FakeServer : Server {
     override fun getScheduler(): BukkitScheduler {
         return object : BukkitScheduler {
             override fun scheduleSyncDelayedTask(plugin: Plugin, r: Runnable, l: Long): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleSyncDelayedTask(plugin: Plugin, bukkitRunnable: BukkitRunnable, l: Long): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleSyncDelayedTask(plugin: Plugin, r: Runnable): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleSyncDelayedTask(plugin: Plugin, bukkitRunnable: BukkitRunnable): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleSyncRepeatingTask(plugin: Plugin, r: Runnable, l: Long, l1: Long): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleSyncRepeatingTask(plugin: Plugin, bukkitRunnable: BukkitRunnable, l: Long, l1: Long): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleAsyncRepeatingTask(plugin: Plugin, r: Runnable, l: Long, l1: Long): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun <T> callSyncMethod(plugin: Plugin, clbl: Callable<T>): Future<T> {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun cancelTask(i: Int) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun cancelTasks(plugin: Plugin) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun cancelAllTasks() {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isCurrentlyRunning(i: Int): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isQueued(i: Int): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getActiveWorkers(): List<BukkitWorker> {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getPendingTasks(): List<BukkitTask> {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
@@ -222,7 +224,7 @@ object FakeServer : Server {
 
             @Throws(IllegalArgumentException::class)
             override fun runTask(plugin: Plugin, bukkitRunnable: BukkitRunnable): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
@@ -233,17 +235,17 @@ object FakeServer : Server {
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskAsynchronously(plugin: Plugin, bukkitRunnable: BukkitRunnable): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskLater(plugin: Plugin, r: Runnable, l: Long): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskLater(plugin: Plugin, bukkitRunnable: BukkitRunnable, l: Long): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
@@ -254,41 +256,41 @@ object FakeServer : Server {
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskLaterAsynchronously(plugin: Plugin, bukkitRunnable: BukkitRunnable, l: Long): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskTimer(plugin: Plugin, r: Runnable, l: Long, l1: Long): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskTimer(plugin: Plugin, bukkitRunnable: BukkitRunnable, l: Long, l1: Long): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskTimerAsynchronously(plugin: Plugin, r: Runnable, l: Long, l1: Long): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             @Throws(IllegalArgumentException::class)
             override fun runTaskTimerAsynchronously(plugin: Plugin, bukkitRunnable: BukkitRunnable, l: Long, l1: Long): BukkitTask {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleAsyncDelayedTask(plugin: Plugin, r: Runnable, l: Long): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun scheduleAsyncDelayedTask(plugin: Plugin, r: Runnable): Int {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
         }
     }
 
     override fun getServicesManager(): ServicesManager {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getWorlds(): List<World> {
@@ -324,22 +326,22 @@ object FakeServer : Server {
     }
 
     override fun getPluginCommand(string: String): PluginCommand {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun savePlayers() {
     }
 
     override fun dispatchCommand(cs: CommandSender, string: String): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun configureDbConfig(sc: ServerConfig) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun addRecipe(recipe: Recipe): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     fun addPlayer(base1: Player) {
@@ -347,100 +349,95 @@ object FakeServer : Server {
         pluginManager.callEvent(PlayerJoinEvent(base1, null))
     }
 
-    fun createPlayer(name: String): OfflinePlayer {
-        val player = createOPlayer(name)
-        return player
-    }
-
     override fun createWorld(creator: WorldCreator): World {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun unloadWorld(string: String, bln: Boolean): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun unloadWorld(world: World, bln: Boolean): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getCommandAliases(): Map<String, Array<String>> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getSpawnRadius(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun setSpawnRadius(i: Int) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getOnlineMode(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     fun getWorld(l: Long): World {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getWorld(uuid: UUID): World {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getViewDistance(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getAllowNether(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun hasWhitelist(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getMap(s: Short): MapView {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun createMap(world: World): MapView {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getAllowFlight(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun setWhitelist(bln: Boolean) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getWhitelistedPlayers(): Set<org.bukkit.OfflinePlayer> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun reloadWhitelist() {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getPlayerExact(string: String): Player {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun shutdown() {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun broadcast(string: String, string1: String): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getOfflinePlayer(string: String): org.bukkit.OfflinePlayer {
-        return createOPlayer(string)
+        return createPlayer(string)
     }
 
-    private fun createOPlayer(string: String): org.bukkit.OfflinePlayer {
+    fun createPlayer(string: String): org.bukkit.OfflinePlayer {
         return object : org.bukkit.OfflinePlayer {
             override fun isOnline(): Boolean {
                 return false
@@ -451,86 +448,81 @@ object FakeServer : Server {
             }
 
             override fun isBanned(): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun setBanned(bln: Boolean) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isWhitelisted(): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun setWhitelisted(bln: Boolean) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getPlayer(): Player {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isOp(): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun setOp(bln: Boolean) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun serialize(): Map<String, Any> {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getFirstPlayed(): Long {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getLastPlayed(): Long {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun hasPlayedBefore(): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getBedSpawnLocation(): Location {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getUniqueId(): UUID? {
-                if (string === "testPlayer1") {
-                    return UUID.fromString("3c9ebe1a-9098-43fd-bc0c-a369b76817ba")
-                } else if (string === "npc1") {
-                    return null
-                }
-                throw UnsupportedOperationException("Not supported yet.") //To change body of generated methods, choose Tools | Templates.
+                return UUID(string.hashCode().toLong(), string.hashCode().toLong());
             }
         }
     }
 
     override fun getIPBans(): Set<String> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun banIP(string: String) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun unbanIP(string: String) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getBannedPlayers(): Set<org.bukkit.OfflinePlayer> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getDefaultGameMode(): GameMode {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun setDefaultGameMode(gamemode: GameMode) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getConsoleSender(): ConsoleCommandSender {
@@ -546,19 +538,19 @@ object FakeServer : Server {
             }
 
             override fun getServer(): Server {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getName(): String {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isPermissionSet(name: String): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isPermissionSet(perm: Permission): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun hasPermission(name: String): Boolean {
@@ -566,35 +558,35 @@ object FakeServer : Server {
             }
 
             override fun hasPermission(perm: Permission): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun addAttachment(plugin: Plugin, name: String, value: Boolean): PermissionAttachment {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun addAttachment(plugin: Plugin): PermissionAttachment {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun addAttachment(plugin: Plugin, name: String, value: Boolean, ticks: Int): PermissionAttachment {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun addAttachment(plugin: Plugin, ticks: Int): PermissionAttachment {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun removeAttachment(attachment: PermissionAttachment) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun recalculatePermissions() {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun getEffectivePermissions(): Set<PermissionAttachmentInfo> {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isOp(): Boolean {
@@ -602,37 +594,37 @@ object FakeServer : Server {
             }
 
             override fun setOp(value: Boolean) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun isConversing(): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun acceptConversationInput(input: String) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun beginConversation(conversation: Conversation): Boolean {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun abandonConversation(conversation: Conversation) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun abandonConversation(conversation: Conversation, details: ConversationAbandonedEvent) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
 
             override fun sendRawMessage(message: String) {
-                throw UnsupportedOperationException("Not supported yet.")
+                throw UnsupportedOperationException()
             }
         }
     }
 
     override fun getOperators(): MutableSet<OfflinePlayer>? {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getBukkitVersion(): String {
@@ -640,103 +632,103 @@ object FakeServer : Server {
     }
 
     override fun getWorldContainer(): File {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getOfflinePlayers(): Array<OfflinePlayer> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getAllowEnd(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getMessenger(): Messenger {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun sendPluginMessage(plugin: Plugin, string: String, bytes: ByteArray) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getListeningPluginChannels(): Set<String> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun useExactLoginLocation(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getTicksPerAnimalSpawns(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getTicksPerMonsterSpawns(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getRecipesFor(`is`: ItemStack): List<Recipe> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun recipeIterator(): Iterator<Recipe> {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun clearRecipes() {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun resetRecipes() {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getHelpMap(): HelpMap {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun createInventory(ih: InventoryHolder, it: InventoryType): Inventory {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun createInventory(ih: InventoryHolder, i: Int): Inventory {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun createInventory(ih: InventoryHolder, i: Int, string: String): Inventory {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getWorldType(): String {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getGenerateStructures(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getConnectionThrottle(): Long {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getMonsterSpawnLimit(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getAnimalSpawnLimit(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getWaterAnimalSpawnLimit(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun isPrimaryThread(): Boolean {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getMotd(): String {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getWarningState(): Warning.WarningState {
@@ -744,53 +736,53 @@ object FakeServer : Server {
     }
 
     override fun getAmbientSpawnLimit(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getShutdownMessage(): String {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getItemFactory(): ItemFactory {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getScoreboardManager(): ScoreboardManager {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getServerIcon(): CachedServerIcon {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     @Throws(IllegalArgumentException::class, Exception::class)
     override fun loadServerIcon(file: File): CachedServerIcon {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     @Throws(IllegalArgumentException::class, Exception::class)
     override fun loadServerIcon(bufferedImage: BufferedImage): CachedServerIcon {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun setIdleTimeout(i: Int) {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getIdleTimeout(): Int {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getUnsafe(): UnsafeValues {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun spigot(): Server.Spigot {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getBanList(arg0: BanList.Type): BanList {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun getPlayer(arg0: UUID): Player? {
@@ -804,16 +796,16 @@ object FakeServer : Server {
 
     override fun getOfflinePlayer(arg0: UUID): org.bukkit.OfflinePlayer {
         if (arg0.toString().equals("3c9ebe1a-9098-43fd-bc0c-a369b76817ba", ignoreCase = true)) {
-            return createOPlayer("testPlayer1")
+            return createPlayer("testPlayer1")
         }
         if (arg0.toString().equals("f4a37409-5c40-3b2c-9cd6-57d3c5abdc76", ignoreCase = true)) {
-            return createOPlayer("npc1")
+            return createPlayer("npc1")
         }
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
     override fun createInventory(arg0: InventoryHolder, arg1: InventoryType, arg2: String): Inventory {
-        throw UnsupportedOperationException("Not supported yet.")
+        throw UnsupportedOperationException()
     }
 
 
@@ -822,40 +814,40 @@ object FakeServer : Server {
 
         @Throws(IllegalArgumentException::class)
         override fun registerInterface(loader: Class<out PluginLoader>) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPlugin(name: String): Plugin {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPlugins(): Array<Plugin> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isPluginEnabled(name: String): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isPluginEnabled(plugin: Plugin): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         @Throws(InvalidPluginException::class, InvalidDescriptionException::class, UnknownDependencyException::class)
         override fun loadPlugin(file: File): Plugin {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun loadPlugins(directory: File): Array<Plugin> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun disablePlugins() {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun clearPlugins() {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         @Throws(IllegalStateException::class)
@@ -873,210 +865,210 @@ object FakeServer : Server {
         }
 
         override fun registerEvent(event: Class<out Event>, listener: Listener, priority: EventPriority, executor: EventExecutor, plugin: Plugin) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun registerEvent(event: Class<out Event>, listener: Listener, priority: EventPriority, executor: EventExecutor, plugin: Plugin, ignoreCancelled: Boolean) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun enablePlugin(plugin: Plugin) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun disablePlugin(plugin: Plugin) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPermission(name: String): Permission {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun addPermission(perm: Permission) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun removePermission(perm: Permission) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun removePermission(name: String) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getDefaultPermissions(op: Boolean): Set<Permission> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun recalculatePermissionDefaults(perm: Permission) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun subscribeToPermission(permission: String, permissible: Permissible) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unsubscribeFromPermission(permission: String, permissible: Permissible) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPermissionSubscriptions(permission: String): Set<Permissible> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun subscribeToDefaultPerms(op: Boolean, permissible: Permissible) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unsubscribeFromDefaultPerms(op: Boolean, permissible: Permissible) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getDefaultPermSubscriptions(op: Boolean): Set<Permissible> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPermissions(): Set<Permission> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun useTimings(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
     }
 
     private class FakeWorld(private val name: String, private val env: World.Environment) : World {
 
         override fun getBlockAt(i: Int, i1: Int, i2: Int): Block {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getBlockAt(lctn: Location): Block {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getBlockTypeIdAt(i: Int, i1: Int, i2: Int): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getBlockTypeIdAt(lctn: Location): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getHighestBlockYAt(i: Int, i1: Int): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getHighestBlockYAt(lctn: Location): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getChunkAt(i: Int, i1: Int): Chunk {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getChunkAt(lctn: Location): Chunk {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getChunkAt(block: Block): Chunk {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isChunkLoaded(chunk: Chunk): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getLoadedChunks(): Array<Chunk> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun loadChunk(chunk: Chunk) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isChunkLoaded(i: Int, i1: Int): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun loadChunk(i: Int, i1: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun loadChunk(i: Int, i1: Int, bln: Boolean): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unloadChunk(i: Int, i1: Int): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unloadChunk(i: Int, i1: Int, bln: Boolean): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unloadChunk(i: Int, i1: Int, bln: Boolean, bln1: Boolean): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unloadChunkRequest(i: Int, i1: Int): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unloadChunkRequest(i: Int, i1: Int, bln: Boolean): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun regenerateChunk(i: Int, i1: Int): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun refreshChunk(i: Int, i1: Int): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun dropItem(lctn: Location, `is`: ItemStack): Item {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun dropItemNaturally(lctn: Location, `is`: ItemStack): Item {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun spawnArrow(lctn: Location, vector: Vector, f: Float, f1: Float): Arrow {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun generateTree(lctn: Location, tt: TreeType): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun generateTree(lctn: Location, tt: TreeType, bcd: BlockChangeDelegate): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun spawnCreature(lctn: Location, ct: CreatureType): LivingEntity {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun strikeLightning(lctn: Location): LightningStrike {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun strikeLightningEffect(lctn: Location): LightningStrike {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getEntities(): List<Entity> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getLivingEntities(): List<LivingEntity> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPlayers(): List<Player> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getName(): String {
@@ -1084,59 +1076,59 @@ object FakeServer : Server {
         }
 
         override fun getSpawnLocation(): Location {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setSpawnLocation(i: Int, i1: Int, i2: Int): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getTime(): Long {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setTime(l: Long) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getFullTime(): Long {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setFullTime(l: Long) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun hasStorm(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setStorm(bln: Boolean) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getWeatherDuration(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setWeatherDuration(i: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isThundering(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setThundering(bln: Boolean) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getThunderDuration(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setThunderDuration(i: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getEnvironment(): World.Environment {
@@ -1144,294 +1136,294 @@ object FakeServer : Server {
         }
 
         override fun getSeed(): Long {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPVP(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setPVP(bln: Boolean) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun save() {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun createExplosion(d: Double, d1: Double, d2: Double, f: Float): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun createExplosion(lctn: Location, f: Float): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getGenerator(): ChunkGenerator {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getPopulators(): List<BlockPopulator> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun playEffect(lctn: Location, effect: Effect, i: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun playEffect(lctn: Location, effect: Effect, i: Int, i1: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun createExplosion(d: Double, d1: Double, d2: Double, f: Float, bln: Boolean): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun createExplosion(lctn: Location, f: Float, bln: Boolean): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         @Throws(IllegalArgumentException::class)
         override fun <T : Entity> spawn(lctn: Location, type: Class<T>): T {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getEmptyChunkSnapshot(i: Int, i1: Int, bln: Boolean, bln1: Boolean): ChunkSnapshot {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setSpawnFlags(bln: Boolean, bln1: Boolean) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getAllowAnimals(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getAllowMonsters(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getUID(): UUID {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getHighestBlockAt(i: Int, i1: Int): Block {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getHighestBlockAt(lctn: Location): Block {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getBiome(i: Int, i1: Int): Biome {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getTemperature(i: Int, i1: Int): Double {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getHumidity(i: Int, i1: Int): Double {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun unloadChunk(chunk: Chunk): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getMaxHeight(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getKeepSpawnInMemory(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setKeepSpawnInMemory(bln: Boolean) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isAutoSave(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setAutoSave(bln: Boolean) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getDifficulty(): Difficulty {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setDifficulty(difficulty: Difficulty) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getSeaLevel(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getWorldFolder(): File {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun <T : Entity> getEntitiesByClass(vararg types: Class<T>): Collection<T> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getWorldType(): WorldType {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun sendPluginMessage(plugin: Plugin, string: String, bytes: ByteArray) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getListeningPluginChannels(): Set<String> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun canGenerateStructures(): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getTicksPerAnimalSpawns(): Long {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setTicksPerAnimalSpawns(i: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getTicksPerMonsterSpawns(): Long {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setTicksPerMonsterSpawns(i: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun <T : Entity> getEntitiesByClass(type: Class<T>): Collection<T> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getEntitiesByClasses(vararg types: Class<*>): Collection<Entity> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun spawnCreature(arg0: Location, arg1: EntityType): LivingEntity {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun <T> playEffect(lctn: Location, effect: Effect, t: T) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun <T> playEffect(lctn: Location, effect: Effect, t: T, i: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setMetadata(string: String, mv: MetadataValue) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getMetadata(string: String): List<MetadataValue> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun hasMetadata(string: String): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun removeMetadata(string: String, plugin: Plugin) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setBiome(arg0: Int, arg1: Int, arg2: Biome) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getMonsterSpawnLimit(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setMonsterSpawnLimit(arg0: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getAnimalSpawnLimit(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setAnimalSpawnLimit(arg0: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getWaterAnimalSpawnLimit(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setWaterAnimalSpawnLimit(arg0: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun spawnEntity(lctn: Location, et: EntityType): Entity {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isChunkInUse(x: Int, z: Int): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         @Throws(IllegalArgumentException::class)
         override fun spawnFallingBlock(location: Location, material: Material, data: Byte): FallingBlock {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         @Throws(IllegalArgumentException::class)
         override fun spawnFallingBlock(location: Location, blockId: Int, blockData: Byte): FallingBlock {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun playSound(arg0: Location, arg1: Sound, arg2: Float, arg3: Float) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getAmbientSpawnLimit(): Int {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setAmbientSpawnLimit(i: Int) {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getGameRules(): Array<String> {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getGameRuleValue(string: String): String {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun setGameRuleValue(string: String, string1: String): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun isGameRule(string: String): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun spigot(): World.Spigot {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun createExplosion(d: Double, d1: Double, d2: Double, f: Float, bln: Boolean, bln1: Boolean): Boolean {
-            throw UnsupportedOperationException("Not supported yet.")
+            throw UnsupportedOperationException()
         }
 
         override fun getWorldBorder(): WorldBorder {
-            throw UnsupportedOperationException("Not supported yet.") //To change body of generated methods, choose Tools | Templates.
+            throw UnsupportedOperationException() //To change body of generated methods, choose Tools | Templates.
         }
     }
 }

@@ -31,23 +31,23 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
 	init {
 		if (fileName == "testingUseOnlyDoNotUseThisAsAnInputPlease") {
 			this.configFile = File.createTempFile("config", ".yml");
-			this.configFile.writeText("""
-            |integer: 0
-            |double: 0.00002
-            |string: 'this is a string'
-            |boolean: true
-            |color: ${Color.fromRGB(12, 42, 100)}
-            |vector: ${Vector(3, 2, 9)}
-            |listOfInts:
-            |  - 3
-            |  - 2
-            """.trimMargin());
+
+			saveDefault();
+			reload();
+
+			this["integer"] = 0;
+			this["double"] = 0.00002;
+			this["string"] = "this is a string";
+			this["boolean"] = true;
+			this["color"] = Color.fromRGB(12, 42, 100);
+			this["vector"] = Vector(3, 2, 9);
+			this["listOfInts"] = listOf(3, 2);
 		} else {
 			this.configFile = File(plugin.dataFolder!!, fileName);
-		}
 
-		saveDefault();
-		reload();
+			saveDefault();
+			reload();
+		}
 	}
 
 	operator fun get(path: String): Any? = config[path, null];

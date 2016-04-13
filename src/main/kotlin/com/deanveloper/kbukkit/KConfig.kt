@@ -1,10 +1,13 @@
 package com.deanveloper.kbukkit
+import org.bukkit.Color
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.Plugin
+import org.bukkit.util.Vector
 import java.io.File
 import java.io.IOException
 import java.util.logging.Level
+import kotlin.reflect.KClass
 
 
 /**
@@ -27,19 +30,17 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
     init {
         if (fileName == "testingUseOnlyDoNotUseThisAsAnInputPlease") {
             this.configFile = File.createTempFile("config", ".yml");
-            /*this.configFile.writeText("""
+            this.configFile.writeText("""
             |integer: 0
             |double: 0.00002
             |string: 'this is a string'
             |boolean: true
-            |color: /color/
-            |itemStack: /itemStack/
-            |vector: /vector/
-            |offlinePlayer: /offlinePlayer/
+            |color: ${Color.fromRGB(12, 42, 100)}
+            |vector: ${Vector(3, 2, 9)}
             |listOfInts:
             |  - 3
             |  - 2
-            """.trimMargin());*/
+            """.trimMargin());
         } else {
             this.configFile = File(plugin.dataFolder!!, fileName);
         }
@@ -48,12 +49,19 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
         reload();
     }
 
-    operator fun get(path: String): Any? = this[path, null];
+    operator fun get(path: String): Any? = config[path, null];
 
-    operator fun get(path: String, def: Any?) = config[path, def];
+    @Suppress("UNCHECKED_CAST")
+    operator fun <T> get(path: String, def: T) = config[path, def]!! as T;
+
+    @Suppress("UNCHECKED_CAST")
+    operator fun <T : Any> get(path: String, type: KClass<T>) = config[path, null]!! as T;
+
+    @Suppress("UNCHECKED_CAST")
+    operator fun <T : Any> get(path: String, type: KClass<T>, def: T) = config[path, def]!! as T;
 
     operator fun set(path: String, value: Any?): KConfig {
-        config[path] = value
+        config[path] = value;
         return this;
     }
 

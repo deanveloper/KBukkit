@@ -45,8 +45,8 @@ import java.util.concurrent.Future
 import java.util.logging.Logger
 
 /**
- * Based off of Essentials' FakeServer class
-
+ * Based off of Essentials' FakeServer class, and converted to Kotlin.
+ *
  * @author Essentials Team
  */
 object FakeServer : Server {

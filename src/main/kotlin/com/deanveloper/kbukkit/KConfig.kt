@@ -1,5 +1,6 @@
 package com.deanveloper.kbukkit
 
+import org.bukkit.Bukkit
 import org.bukkit.Color
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
@@ -29,7 +30,7 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
 		private set;
 
 	init {
-		if (fileName == "testingUseOnlyDoNotUseThisAsAnInputPlease") {
+		if (Bukkit.getServer().javaClass.simpleName == "FakeServer") {
 			this.configFile = File.createTempFile("config", ".yml");
 
 			saveDefault();

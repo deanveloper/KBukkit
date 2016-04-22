@@ -35,8 +35,16 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
             |double: 0.00002
             |string: 'this is a string'
             |boolean: true
-            |color: ${Color.fromRGB(12, 42, 100)}
-            |vector: ${Vector(3, 2, 9)}
+            |color:
+            |  ==: Color
+            |  r: 12
+            |  g: 42
+            |  b: 100
+            |vector:
+            |  ==: Vector
+            |  x: 3
+            |  y: 2
+            |  z: 9
             |listOfInts:
             |  - 3
             |  - 2

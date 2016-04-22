@@ -11,6 +11,7 @@ class KBukkitRunnableTest {
     @Before
     fun setUp() {
         KBukkitPlugin(FakeServer);
+        FakeServer.logger.info("Starting KBukkitRunnable...")
     }
 
     @After

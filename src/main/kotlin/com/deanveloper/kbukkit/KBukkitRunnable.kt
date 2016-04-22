@@ -7,8 +7,8 @@ import org.bukkit.scheduler.BukkitRunnable
  *
  * @author Dean Bassett
  */
-class KBukkitRunnable (val run: () -> Unit) : BukkitRunnable() {
-    override final fun run() {
-        run.invoke();
-    }
+class KBukkitRunnable(val run: () -> Unit) : BukkitRunnable() {
+	override final fun run() {
+		run.invoke();
+	}
 }

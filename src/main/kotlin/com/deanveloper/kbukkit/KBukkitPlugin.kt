@@ -11,25 +11,25 @@ import org.bukkit.plugin.java.JavaPluginLoader
  * @author Dean Bassett
  */
 final class KBukkitPlugin : JavaPlugin {
-    companion object {
-        lateinit var instance: KBukkitPlugin
-            private set;
-    }
+	companion object {
+		lateinit var instance: KBukkitPlugin
+			private set;
+	}
 
-    /**
-     * Used by Bukkit
-     */
-    constructor();
+	/**
+	 * Used by Bukkit
+	 */
+	constructor();
 
-    /**
-     * Used for tests
-     */
-    internal constructor(server: Server) : super(JavaPluginLoader(server),
-            PluginDescriptionFile("KBukkit", "test", KBukkitPlugin::class.qualifiedName), null, null) {
-        instance = this;
-    }
+	/**
+	 * Used for tests
+	 */
+	internal constructor(server: Server) : super(JavaPluginLoader(server),
+			PluginDescriptionFile("KBukkit", "test", KBukkitPlugin::class.qualifiedName), null, null) {
+		instance = this;
+	}
 
-    override fun onEnable() {
-        instance = this;
-    }
+	override fun onEnable() {
+		instance = this;
+	}
 }

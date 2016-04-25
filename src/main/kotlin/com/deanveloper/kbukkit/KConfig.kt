@@ -1,9 +1,7 @@
 package com.deanveloper.kbukkit
-import org.bukkit.Color
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.plugin.Plugin
-import org.bukkit.util.Vector
 import java.io.File
 import java.io.IOException
 import java.util.logging.Level
@@ -21,7 +19,7 @@ import kotlin.reflect.KClass
  * @property[fileName]  The file name of your config.
  * @author Dean Bassett
  */
-open class KConfig(val plugin: Plugin, val fileName: String) {
+class KConfig(val plugin: Plugin, val fileName: String) {
 
     val configFile: File;
     lateinit var config: FileConfiguration
@@ -37,14 +35,14 @@ open class KConfig(val plugin: Plugin, val fileName: String) {
             |boolean: true
             |color:
             |  ==: Color
-            |  r: 12
-            |  g: 42
-            |  b: 100
+            |  RED: 12
+            |  GREEN: 42
+            |  BLUE: 100
             |vector:
             |  ==: Vector
-            |  x: 3
-            |  y: 2
-            |  z: 9
+            |  x: 3.0
+            |  y: 2.0
+            |  z: 9.0
             |listOfInts:
             |  - 3
             |  - 2

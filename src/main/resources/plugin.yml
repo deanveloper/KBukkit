@@ -1,2 +1,6 @@
 name: KBukkit
+main: com.deanveloper.kbukkit.KBukkitPlugin
 version: ${project.version}
+description: A plugin to make Kotlin plugins much easier to create
+author: Deanveloper
+website: http://deanveloper.com

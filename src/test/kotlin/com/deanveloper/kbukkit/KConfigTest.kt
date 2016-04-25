@@ -14,7 +14,6 @@ class KConfigTest {
     @Before
     fun setUp() {
         KBukkitPlugin(FakeServer);
-        FakeServer.logger.info("Starting KConfig test...")
     }
 
     @After

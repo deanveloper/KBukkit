@@ -11,7 +11,6 @@ class KBukkitRunnableTest {
     @Before
     fun setUp() {
         KBukkitPlugin(FakeServer);
-        FakeServer.logger.info("Starting KBukkitRunnable...")
     }
 
     @After
@@ -20,8 +19,11 @@ class KBukkitRunnableTest {
 
     @Test
     fun testRunTask() {
+        var s: String = ""
         KBukkitRunnable {
-            FakeServer.logger.info("KBukkit has been run successfully!")
+            s = "hi lol"
         }.runTask(KBukkitPlugin.instance)
+
+        Assert.assertEquals(s, "hi lol")
     }
 }

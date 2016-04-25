@@ -10,20 +10,20 @@ import java.util.*
  *
  * @author Dean B
  */
-open class CustomPlayer private constructor(player: Player) : Player by player {
+open class CustomPlayer protected constructor(player: Player) : Player by player {
     init {
-        idMap.put(uniqueId, this);
-        nameMap.put(name, this);
+        idMap.put(uniqueId, this)
+        nameMap.put(name, this)
 
         KBukkitRunnable {
-            idMap.remove(uniqueId);
-            nameMap.remove(name);
-        }.runTaskLater(KBukkitPlugin.instance, 20L);
+            idMap.remove(uniqueId)
+            nameMap.remove(name)
+        }.runTaskLater(KBukkitPlugin.instance, 20L)
     }
 
     companion object Handler {
-        private val idMap = mutableMapOf<UUID, CustomPlayer>();
-        private val nameMap = mutableMapOf<String, CustomPlayer>();
+        private val idMap = mutableMapOf<UUID, CustomPlayer>()
+        private val nameMap = mutableMapOf<String, CustomPlayer>()
 
         @JvmStatic operator fun get(index: UUID): CustomPlayer {
             return idMap[index] ?: CustomPlayer(Bukkit.getPlayer(index)!!)

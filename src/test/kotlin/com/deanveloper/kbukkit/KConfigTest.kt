@@ -16,10 +16,6 @@ class KConfigTest {
         KBukkitPlugin(FakeServer);
     }
 
-    @After
-    fun tearDown() {
-    }
-
     @Test
     fun testRunTask() {
         val config = KConfig(KBukkitPlugin.instance, "testingUseOnlyDoNotUseThisAsAnInputPlease");

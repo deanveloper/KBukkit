@@ -13,10 +13,6 @@ class KBukkitRunnableTest {
         KBukkitPlugin(FakeServer);
     }
 
-    @After
-    fun tearDown() {
-    }
-
     @Test
     fun testRunTask() {
         var s: String = ""

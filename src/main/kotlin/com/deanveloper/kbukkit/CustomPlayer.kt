@@ -21,7 +21,7 @@ open class CustomPlayer private constructor(player: Player) : Player by player {
         }.runTaskLater(KBukkitPlugin.instance, 20L);
     }
 
-    companion object {
+    companion object Handler {
         private val idMap = mutableMapOf<UUID, CustomPlayer>();
         private val nameMap = mutableMapOf<String, CustomPlayer>();
 

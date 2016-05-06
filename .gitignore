@@ -3,6 +3,7 @@
 *.iml
 .idea/*
 *.xml
+target
 
 # Keep the pom.xml
 !pom.xml

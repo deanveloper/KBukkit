@@ -6,20 +6,15 @@ import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.plugin.java.JavaPluginLoader
 
 /**
- * Plugin for Bukkit
+ * Plugin class created for testing purposes
  *
  * @author Dean Bassett
  */
-final class KBukkitPlugin : KotlinPlugin {
+class KBukkitPlugin : JavaPlugin {
     companion object {
         lateinit var instance: KBukkitPlugin
             private set;
     }
-
-    /**
-     * Used by Bukkit
-     */
-    constructor();
 
     /**
      * Used for tests

@@ -2,7 +2,6 @@ package com.deanveloper.kbukkit
 
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
-import java.lang.ref.SoftReference
 import java.util.*
 
 /**
@@ -14,23 +13,22 @@ open class CustomPlayer protected constructor(player: Player) : Player by player
     init {
         idMap.put(uniqueId, this)
         nameMap.put(name, this)
-
-        KBukkitRunnable {
-            idMap.remove(uniqueId)
-            nameMap.remove(name)
-        }.runTaskLater(KBukkitPlugin.instance, 20L)
     }
 
-    companion object Handler {
-        private val idMap = mutableMapOf<UUID, CustomPlayer>()
-        private val nameMap = mutableMapOf<String, CustomPlayer>()
+    companion object : CustomPlayerCompanion<CustomPlayer>({ CustomPlayer(it) })
+}
 
-        @JvmStatic operator fun get(index: UUID): CustomPlayer {
-            return idMap[index] ?: CustomPlayer(Bukkit.getPlayer(index)!!)
-        }
+open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
+    protected val idMap = WeakHashMap<UUID, T>()
+    protected val nameMap = WeakHashMap<String, T>()
 
-        @JvmStatic operator fun get(index: String): CustomPlayer {
-            return nameMap[index] ?: CustomPlayer(Bukkit.getPlayer(index)!!)
-        }
+    operator fun get(player: Player): T = this[player.uniqueId]
+
+    operator fun get(index: UUID): T {
+        return idMap[index] ?: factory(Bukkit.getPlayer(index)!!)
+    }
+
+    operator fun get(index: String): CustomPlayer {
+        return nameMap[index] ?: factory(Bukkit.getPlayer(index)!!)
     }
 }

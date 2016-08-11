@@ -15,19 +15,19 @@ class KConfigTest {
 
     @Before
     fun setUp() {
-        KBukkitPlugin(FakeServer);
+        KBukkitPlugin(FakeServer)
     }
 
     @Test
     fun testRunTask() {
-        val config = KConfig(KBukkitPlugin.instance, "testingUseOnlyDoNotUseThisAsAnInputPlease");
-        assertEquals(config["integer"], 0);
-        assertTrue { Math.abs(config["double", Double::class] - 0.00002) < .00000001 };
-        assertEquals(config["string"], "this is a string");
-        assertEquals(config["boolean"], true);
-        assertEquals(config["color"], Color.fromRGB(12, 42, 100));
-        assertEquals(config["vector"], Vector(3, 2, 9));
-        assertEquals(config["listOfInts"], listOf(3, 2));
+        val config = KConfig(KBukkitPlugin.instance, "testingUseOnlyDoNotUseThisAsAnInputPlease")
+        assertEquals(config["integer"], 0)
+        assertTrue { Math.abs(config["double", Double::class] - 0.00002) < .00000001 }
+        assertEquals(config["string"], "this is a string")
+        assertEquals(config["boolean"], true)
+        assertEquals(config["color"], Color.fromRGB(12, 42, 100))
+        assertEquals(config["vector"], Vector(3, 2, 9))
+        assertEquals(config["listOfInts"], listOf(3, 2))
 
     }
 }

@@ -50,51 +50,51 @@ import java.util.logging.Logger
  * @author Essentials Team
  */
 object FakeServer : Server {
-    private var players: MutableList<Player> = ArrayList();
-    private val worlds = ArrayList<World>();
-    internal var pluginManager: PluginManager = FakePluginManager;
+    private var players: MutableList<Player> = ArrayList()
+    private val worlds = ArrayList<World>()
+    internal var pluginManager: PluginManager = FakePluginManager
 
     init {
         if (Bukkit.getServer() == null) {
-            Bukkit.setServer(this);
+            Bukkit.setServer(this)
         }
     }
 
     override fun getName(): String {
-        return "Essentials Fake Server";
+        return "Essentials Fake Server"
     }
 
     override fun getVersion(): String {
-        return "1.0";
+        return "1.0"
     }
 
     override fun _INVALID_getOnlinePlayers(): Array<Player> {
-        return players.toTypedArray();
+        return players.toTypedArray()
     }
 
-    override fun getOnlinePlayers() = players;
+    override fun getOnlinePlayers() = players
 
     fun setOnlinePlayers(players: MutableList<Player>) {
-        this.players = players;
+        this.players = players
     }
 
-    override fun getMaxPlayers() = 1;
+    override fun getMaxPlayers() = 1
 
-    override fun getPort() = 25565;
+    override fun getPort() = 25565
 
-    override fun getIp() = "127.0.0.1";
+    override fun getIp() = "127.0.0.1"
 
-    override fun getServerName() = "Test Server";
+    override fun getServerName() = "Test Server"
 
-    override fun getServerId() = "Test Server";
+    override fun getServerId() = "Test Server"
 
     override fun broadcastMessage(string: String): Int {
-        var i = 0;
-        players.forEach { it.sendMessage(string) };
-        return i;
+        var i = 0
+        players.forEach { it.sendMessage(string) }
+        return i
     }
 
-    override fun getUpdateFolder() = "update";
+    override fun getUpdateFolder() = "update"
 
     override fun getUpdateFolderFile(): File {
         throw UnsupportedOperationException()
@@ -105,7 +105,7 @@ object FakeServer : Server {
     }
 
     override fun getPlayer(string: String): Player? {
-        return players.firstOrNull { it.name.equals(string, true) };
+        return players.firstOrNull { it.name.equals(string, true) }
     }
 
     override fun matchPlayer(string: String): List<Player> {
@@ -186,13 +186,13 @@ object FakeServer : Server {
 
             @Throws(IllegalArgumentException::class)
             override fun runTask(plugin: Plugin, r: Runnable): BukkitTask {
-                r.run();
+                r.run()
                 return object : BukkitTask { //dummy bukkit task
-                    override fun getTaskId() = 1;
+                    override fun getTaskId() = 1
 
-                    override fun getOwner() = KBukkitPlugin.instance;
+                    override fun getOwner() = KBukkitPlugin.instance
 
-                    override fun isSync() = true;
+                    override fun isSync() = true
 
                     override fun cancel() {
                         throw UnsupportedOperationException()
@@ -271,7 +271,7 @@ object FakeServer : Server {
         throw UnsupportedOperationException()
     }
 
-    override fun getWorlds(): List<World> = worlds;
+    override fun getWorlds(): List<World> = worlds
 
     override fun getWorld(string: String): World? {
         for (world in worlds) {
@@ -285,7 +285,7 @@ object FakeServer : Server {
     override fun reload() {
     }
 
-    override fun getLogger() = Logger.getLogger("Minecraft");
+    override fun getLogger() = Logger.getLogger("Minecraft")
 
     override fun getPluginCommand(string: String): PluginCommand {
         throw UnsupportedOperationException()
@@ -387,7 +387,7 @@ object FakeServer : Server {
     }
 
     override fun getOfflinePlayer(string: String): org.bukkit.OfflinePlayer {
-        return getPlayer(string) ?: createPlayer(string);
+        return getPlayer(string) ?: createPlayer(string)
     }
 
     fun createPlayer(string: String): org.bukkit.OfflinePlayer {
@@ -449,7 +449,7 @@ object FakeServer : Server {
             }
 
             override fun getUniqueId(): UUID? {
-                return UUID(string.hashCode().toLong(), string.hashCode().toLong());
+                return UUID(string.hashCode().toLong(), string.hashCode().toLong())
             }
         }
     }
@@ -544,7 +544,7 @@ object FakeServer : Server {
             }
 
             override fun isOp(): Boolean {
-                return true;
+                return true
             }
 
             override fun setOp(value: Boolean) {
@@ -686,7 +686,7 @@ object FakeServer : Server {
     }
 
     override fun getWarningState(): Warning.WarningState {
-        return Warning.WarningState.DEFAULT;
+        return Warning.WarningState.DEFAULT
     }
 
     override fun getAmbientSpawnLimit(): Int {
@@ -740,11 +740,11 @@ object FakeServer : Server {
     }
 
     override fun getPlayer(arg0: UUID): Player? {
-        return players.firstOrNull { it.uniqueId == arg0 };
+        return players.firstOrNull { it.uniqueId == arg0 }
     }
 
     override fun getOfflinePlayer(arg0: UUID): OfflinePlayer {
-        return getPlayer(arg0) ?: throw UnsupportedOperationException();
+        return getPlayer(arg0) ?: throw UnsupportedOperationException()
     }
 
     override fun createInventory(arg0: InventoryHolder, arg1: InventoryType, arg2: String): Inventory {

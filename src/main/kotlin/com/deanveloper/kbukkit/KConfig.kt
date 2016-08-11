@@ -22,13 +22,13 @@ import kotlin.reflect.KClass
  */
 class KConfig(val plugin: Plugin, val fileName: String) {
 
-    val configFile: File;
+    val configFile: File
     lateinit var config: FileConfiguration
-        private set;
+        private set
 
     init {
         if (fileName == "testingUseOnlyDoNotUseThisAsAnInputPlease") {
-            this.configFile = File.createTempFile("config", ".yml");
+            this.configFile = File.createTempFile("config", ".yml")
             this.configFile.writeText("""
             |integer: 0
             |double: 0.00002
@@ -47,63 +47,63 @@ class KConfig(val plugin: Plugin, val fileName: String) {
             |listOfInts:
             |  - 3
             |  - 2
-            """.trimMargin());
+            """.trimMargin())
         } else {
-            this.configFile = File(plugin.dataFolder!!, fileName);
+            this.configFile = File(plugin.dataFolder!!, fileName)
         }
 
-        saveDefault();
-        reload();
+        saveDefault()
+        reload()
     }
 
-    operator fun get(path: String): Any? = config[path, null];
+    operator fun get(path: String): Any? = config[path, null]
 
     @Suppress("UNCHECKED_CAST")
-    operator fun <T> get(path: String, def: T) = config[path, def]!! as T;
+    operator fun <T> get(path: String, def: T) = config[path, def]!! as T
 
     @Suppress("UNCHECKED_CAST")
-    operator fun <T : Any> get(path: String, type: KClass<T>) = config[path, null]!! as T;
+    operator fun <T : Any> get(path: String, type: KClass<T>) = config[path, null]!! as T
 
     @Suppress("UNCHECKED_CAST")
-    operator fun <T : Any> get(path: String, type: KClass<T>, def: T) = config[path, def]!! as T;
+    operator fun <T : Any> get(path: String, type: KClass<T>, def: T) = config[path, def]!! as T
 
     operator fun set(path: String, value: Any?): KConfig {
-        config[path] = value;
-        return this;
+        config[path] = value
+        return this
     }
 
     operator fun unaryPlus(): KConfig {
-        saveDefault();
-        save();
-        return this;
+        saveDefault()
+        save()
+        return this
     }
 
     fun reload(): Unit {
-        config = YamlConfiguration.loadConfiguration(configFile)!!;
+        config = YamlConfiguration.loadConfiguration(configFile)!!
 
         // Look for defaults in the jar
-        val defaults = plugin.getResource(fileName);
+        val defaults = plugin.getResource(fileName)
         if (defaults != null) {
-            config.defaults = YamlConfiguration.loadConfiguration(defaults.reader());
+            config.defaults = YamlConfiguration.loadConfiguration(defaults.reader())
         }
     }
 
     fun save(): Unit {
         try {
-            config.save(configFile);
+            config.save(configFile)
         } catch (ex: IOException) {
-            plugin.logger.log(Level.SEVERE, "Could not save config to " + configFile, ex);
+            plugin.logger.log(Level.SEVERE, "Could not save config to " + configFile, ex)
         }
     }
 
     fun saveDefault() {
         if (!configFile.exists()) {
-            plugin.saveResource(fileName, false);
+            plugin.saveResource(fileName, false)
         }
     }
 
     override fun toString(): String {
-        return config.toString();
+        return config.toString()
     }
 }
 

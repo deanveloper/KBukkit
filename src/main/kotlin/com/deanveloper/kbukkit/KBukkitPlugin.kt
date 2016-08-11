@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPluginLoader
 class KBukkitPlugin : JavaPlugin {
     companion object {
         lateinit var instance: KBukkitPlugin
-            private set;
+            private set
     }
 
     /**
@@ -24,10 +24,10 @@ class KBukkitPlugin : JavaPlugin {
             PluginDescriptionFile("KBukkit", "test", KBukkitPlugin::class.qualifiedName),
             null,
             null) {
-        instance = this;
+        instance = this
     }
 
     override fun onEnable() {
-        instance = this;
+        instance = this
     }
 }

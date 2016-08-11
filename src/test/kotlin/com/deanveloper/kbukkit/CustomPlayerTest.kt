@@ -17,12 +17,14 @@ class CustomPlayerTest {
 
     @Test
     fun test() {
-
+        // no good way to test this as we can't use OfflinePlayers for this, but here is the usage!
     }
 
-    final class KotlinPlayer protected constructor(p: Player) : CustomPlayer(p) {
+    class KotlinPlayer protected constructor(p: Player) : CustomPlayer(p) {
         init {
             TODO()
         }
+
+        companion object : CustomPlayerCompanion<KotlinPlayer>({ KotlinPlayer(it) })
     }
 }

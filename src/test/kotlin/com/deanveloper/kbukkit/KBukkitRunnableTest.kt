@@ -1,6 +1,8 @@
 package com.deanveloper.kbukkit
 
-import org.junit.*
+import org.junit.Before
+import org.junit.Test
+import kotlin.test.assertEquals
 
 /**
  * KBukkitRunnable tester
@@ -10,16 +12,16 @@ import org.junit.*
 class KBukkitRunnableTest {
     @Before
     fun setUp() {
-        KBukkitPlugin(FakeServer);
+        KBukkitPlugin(FakeServer)
     }
 
     @Test
     fun testRunTask() {
         var s: String = ""
-        KBukkitRunnable {
+        runTask(KBukkitPlugin.instance) {
             s = "hi lol"
-        }.runTask(KBukkitPlugin.instance)
+        }
 
-        Assert.assertEquals(s, "hi lol")
+        assertEquals(s, "hi lol")
     }
 }

@@ -19,7 +19,7 @@ class KConfigTest {
     }
 
     @Test
-    fun testRunTask() {
+    fun testConfig() {
         val config = KConfig(KBukkitPlugin.instance, "testingUseOnlyDoNotUseThisAsAnInputPlease")
         assertEquals(config["integer"], 0)
         assertTrue { Math.abs(config["double", Double::class] - 0.00002) < .00000001 }

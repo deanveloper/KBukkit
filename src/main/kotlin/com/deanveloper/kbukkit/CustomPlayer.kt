@@ -11,8 +11,8 @@ import java.util.*
  */
 open class CustomPlayer protected constructor(player: Player) : Player by player {
     init {
-        idMap.put(uniqueId, this)
-        nameMap.put(name, this)
+        idMap.put(player.uniqueId, this)
+        nameMap.put(player.name, this)
     }
 
     companion object : CustomPlayerCompanion<CustomPlayer>({ CustomPlayer(it) })
@@ -29,6 +29,6 @@ open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
     }
 
     operator fun get(index: String): CustomPlayer {
-        return nameMap[index] ?: factory(Bukkit.getPlayer(index)!!)
+        return nameMap[index] ?: factory(Bukkit.getPlayerExact(index)!!)
     }
 }

@@ -10,11 +10,6 @@ import java.util.*
  * @author Dean B
  */
 open class CustomPlayer protected constructor(player: Player) : Player by player {
-    init {
-        idMap.put(player.uniqueId, this)
-        nameMap.put(player.name, this)
-    }
-
     companion object : CustomPlayerCompanion<CustomPlayer>({ CustomPlayer(it) })
 }
 
@@ -22,13 +17,19 @@ open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
     protected val idMap = WeakHashMap<UUID, T>()
     protected val nameMap = WeakHashMap<String, T>()
 
-    operator fun get(player: Player): T = this[player.uniqueId]
+    operator fun get(player: Player): T {
+        if(player.uniqueId in idMap) {
+            return idMap[player.uniqueId]!!
+        } else {
+            val custom = factory(player)
+            idMap[player.uniqueId] = custom
+            nameMap[player.name] = custom
 
-    operator fun get(index: UUID): T {
-        return idMap[index] ?: factory(Bukkit.getPlayer(index)!!)
+            return custom
+        }
     }
 
-    operator fun get(index: String): CustomPlayer {
-        return nameMap[index] ?: factory(Bukkit.getPlayerExact(index)!!)
-    }
+    operator fun get(index: UUID): T = this[Bukkit.getPlayer(index)]
+
+    operator fun get(index: String): T = this[Bukkit.getPlayerExact(index)]
 }

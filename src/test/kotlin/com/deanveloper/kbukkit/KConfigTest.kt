@@ -22,7 +22,7 @@ class KConfigTest {
     fun testConfig() {
         val config = KConfig(KBukkitPlugin.instance, "testingUseOnlyDoNotUseThisAsAnInputPlease")
         assertEquals(config["integer"], 0)
-        assertTrue { Math.abs(config["double", Double::class] - 0.00002) < .00000001 }
+        assertTrue { config["double", Double::class] in 0.19999..0.200001 }
         assertEquals(config["string"], "this is a string")
         assertEquals(config["boolean"], true)
         assertEquals(config["color"], Color.fromRGB(12, 42, 100))

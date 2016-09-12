@@ -31,7 +31,7 @@ class KConfig(val plugin: Plugin, val fileName: String) {
             this.configFile = File.createTempFile("config", ".yml")
             this.configFile.writeText("""
             |integer: 0
-            |double: 0.00002
+            |double: 0.2
             |string: 'this is a string'
             |boolean: true
             |color:

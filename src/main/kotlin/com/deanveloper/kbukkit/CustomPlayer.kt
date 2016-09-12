@@ -1,6 +1,5 @@
 package com.deanveloper.kbukkit
 
-import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import java.util.*
 
@@ -29,7 +28,7 @@ open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
         }
     }
 
-    operator fun get(index: UUID): T = this[Bukkit.getPlayer(index)]
+    operator fun get(index: UUID): T = this[getPlayer(index)!!]
 
-    operator fun get(index: String): T = this[Bukkit.getPlayerExact(index)]
+    operator fun get(index: String): T = this[getPlayerExact(index)!!]
 }

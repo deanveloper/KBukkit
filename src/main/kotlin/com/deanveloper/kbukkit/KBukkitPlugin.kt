@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPluginLoader
  *
  * @author Dean Bassett
  */
-class KBukkitPlugin : JavaPlugin {
+class KBukkitPlugin : KotlinPlugin {
     companion object {
         lateinit var instance: KBukkitPlugin
             private set
@@ -19,11 +19,7 @@ class KBukkitPlugin : JavaPlugin {
     /**
      * Used for tests
      */
-    internal constructor(server: Server) : super(
-            JavaPluginLoader(server),
-            PluginDescriptionFile("KBukkit", "test", KBukkitPlugin::class.qualifiedName),
-            null,
-            null) {
+    internal constructor(server: Server) : super(server) {
         instance = this
     }
 

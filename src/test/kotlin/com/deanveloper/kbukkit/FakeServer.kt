@@ -4,6 +4,10 @@ import com.avaje.ebean.config.ServerConfig
 import org.bukkit.*
 import org.bukkit.block.Biome
 import org.bukkit.block.Block
+import org.bukkit.boss.BarColor
+import org.bukkit.boss.BarFlag
+import org.bukkit.boss.BarStyle
+import org.bukkit.boss.BossBar
 import org.bukkit.command.CommandSender
 import org.bukkit.command.ConsoleCommandSender
 import org.bukkit.command.PluginCommand
@@ -50,6 +54,14 @@ import java.util.logging.Logger
  * @author Essentials Team
  */
 object FakeServer : Server {
+    override fun createChunkData(world: World?): ChunkGenerator.ChunkData {
+        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun createBossBar(title: String?, color: BarColor?, style: BarStyle?, vararg flags: BarFlag?): BossBar {
+        throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     private var players: MutableList<Player> = ArrayList()
     private val worlds = ArrayList<World>()
     internal var pluginManager: PluginManager = FakePluginManager
@@ -881,6 +893,65 @@ object FakeServer : Server {
     }
 
     private class FakeWorld(private val name: String, private val env: World.Environment) : World {
+        override fun <T : Arrow?> spawnArrow(location: Location?, direction: Vector?, speed: Float, spread: Float, clazz: Class<T>?): T {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun playSound(location: Location?, sound: String?, volume: Float, pitch: Float) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun getNearbyEntities(location: Location?, x: Double, y: Double, z: Double): MutableCollection<Entity>? {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun spawnParticle(particle: Particle?, location: Location?, count: Int) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun spawnParticle(particle: Particle?, x: Double, y: Double, z: Double, count: Int) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun <T : Any?> spawnParticle(particle: Particle?, location: Location?, count: Int, data: T) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun <T : Any?> spawnParticle(particle: Particle?, x: Double, y: Double, z: Double, count: Int, data: T) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun spawnParticle(particle: Particle?, location: Location?, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun spawnParticle(particle: Particle?, x: Double, y: Double, z: Double, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun <T : Any?> spawnParticle(particle: Particle?, location: Location?, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double, data: T) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun <T : Any?> spawnParticle(particle: Particle?, x: Double, y: Double, z: Double, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double, data: T) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun spawnParticle(particle: Particle?, location: Location?, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double, extra: Double) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun spawnParticle(particle: Particle?, x: Double, y: Double, z: Double, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double, extra: Double) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun <T : Any?> spawnParticle(particle: Particle?, location: Location?, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double, extra: Double, data: T) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun <T : Any?> spawnParticle(particle: Particle?, x: Double, y: Double, z: Double, count: Int, offsetX: Double, offsetY: Double, offsetZ: Double, extra: Double, data: T) {
+            throw UnsupportedOperationException("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
 
         override fun getBlockAt(i: Int, i1: Int, i2: Int): Block {
             throw UnsupportedOperationException()
@@ -987,10 +1058,6 @@ object FakeServer : Server {
         }
 
         override fun generateTree(lctn: Location, tt: TreeType, bcd: BlockChangeDelegate): Boolean {
-            throw UnsupportedOperationException()
-        }
-
-        override fun spawnCreature(lctn: Location, ct: CreatureType): LivingEntity {
             throw UnsupportedOperationException()
         }
 
@@ -1252,10 +1319,6 @@ object FakeServer : Server {
         }
 
         override fun getEntitiesByClasses(vararg types: Class<*>): Collection<Entity> {
-            throw UnsupportedOperationException()
-        }
-
-        override fun spawnCreature(arg0: Location, arg1: EntityType): LivingEntity {
             throw UnsupportedOperationException()
         }
 

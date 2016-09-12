@@ -13,6 +13,14 @@
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>bintray</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -32,6 +40,11 @@
             <artifactId>kotlin-reflect</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-support-jdk8</artifactId>
+            <version>0.3</version>
+        </dependency>
         <!--Google Guava-->
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -42,13 +55,13 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.8-R0.1-SNAPSHOT</version>
+            <version>1.10-R0.1-SNAPSHOT</version>
         </dependency>
         <!--Bukkit API-->
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
-            <version>1.8-R0.1-SNAPSHOT</version>
+            <version>1.10-R0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -93,8 +106,22 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <artifactSet>
+                        <includes>
+                            <include>org.jetbrains.kotlin:kotlin-stdlib</include>
+                            <include>org.jetbrains.kotlin:kotlin-reflect</include>
+                            <include>org.jetbrains.kotlin:kotlin-runtime</include>
+                        </includes>
+                    </artifactSet>
                 </configuration>
             </plugin>
         </plugins>

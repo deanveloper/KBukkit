@@ -7,7 +7,7 @@ import org.bukkit.scheduler.BukkitTask
 /**
  * Run a task on the main thread
  */
-inline fun runTask(plugin: Plugin, crossinline toRun: BukkitRunnable.() -> Unit): BukkitTask {
+fun runTask(plugin: Plugin, toRun: BukkitRunnable.() -> Unit): BukkitTask {
     return object : BukkitRunnable() {
         override fun run() {
             this.toRun()
@@ -18,7 +18,7 @@ inline fun runTask(plugin: Plugin, crossinline toRun: BukkitRunnable.() -> Unit)
 /**
  * Run a task after [delay] of ticks
  */
-inline fun runTaskLater(plugin: Plugin, delay: Long, crossinline toRun: BukkitRunnable.() -> Unit): BukkitTask {
+fun runTaskLater(plugin: Plugin, delay: Long, toRun: BukkitRunnable.() -> Unit): BukkitTask {
     return object : BukkitRunnable() {
         override fun run() {
             this.toRun()
@@ -29,7 +29,7 @@ inline fun runTaskLater(plugin: Plugin, delay: Long, crossinline toRun: BukkitRu
 /**
  * Repeat a task every [repeat] ticks after [delay] ticks
  */
-inline fun runTaskTimer(plugin: Plugin, delay: Long, repeat: Long, crossinline toRun: BukkitRunnable.() -> Unit): BukkitTask {
+fun runTaskTimer(plugin: Plugin, delay: Long, repeat: Long, toRun: BukkitRunnable.() -> Unit): BukkitTask {
     return object : BukkitRunnable() {
         override fun run() {
             this.toRun()
@@ -40,7 +40,7 @@ inline fun runTaskTimer(plugin: Plugin, delay: Long, repeat: Long, crossinline t
 /**
  * Run a task on the async thread
  */
-inline fun runTaskAsync(plugin: Plugin, crossinline toRun: BukkitRunnable.() -> Unit): BukkitTask {
+fun runTaskAsync(plugin: Plugin, toRun: BukkitRunnable.() -> Unit): BukkitTask {
     return object : BukkitRunnable() {
         override fun run() {
             this.toRun()
@@ -51,7 +51,7 @@ inline fun runTaskAsync(plugin: Plugin, crossinline toRun: BukkitRunnable.() -> 
 /**
  * Run a task after [delay] ticks on the async thread
  */
-inline fun runTaskLaterAsync(plugin: Plugin, delay: Long, crossinline toRun: BukkitRunnable.() -> Unit): BukkitTask {
+fun runTaskLaterAsync(plugin: Plugin, delay: Long, toRun: BukkitRunnable.() -> Unit): BukkitTask {
     return object : BukkitRunnable() {
         override fun run() {
             this.toRun()
@@ -62,7 +62,7 @@ inline fun runTaskLaterAsync(plugin: Plugin, delay: Long, crossinline toRun: Buk
 /**
  * Repeat a task every [repeat] ticks after [delay] ticks on the async thread
  */
-inline fun runTaskTimerAsync(plugin: Plugin, delay: Long, repeat: Long, crossinline toRun: BukkitRunnable.() -> Unit): BukkitTask {
+fun runTaskTimerAsync(plugin: Plugin, delay: Long, repeat: Long, toRun: BukkitRunnable.() -> Unit): BukkitTask {
     return object : BukkitRunnable() {
         override fun run() {
             this.toRun()

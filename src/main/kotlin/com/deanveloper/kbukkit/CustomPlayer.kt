@@ -9,7 +9,7 @@ import java.util.*
  * @author Dean B
  */
 open class CustomPlayer protected constructor(player: Player) : Player by player {
-    companion object : CustomPlayerCompanion<CustomPlayer>({ CustomPlayer(it) })
+    companion object : CustomPlayerCompanion<CustomPlayer>(::CustomPlayer)
 }
 
 open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
@@ -28,7 +28,7 @@ open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
         }
     }
 
-    operator fun get(index: UUID): T = this[getPlayer(index)!!]
+    operator fun get(index: UUID): T = this[Players[index]!!]
 
-    operator fun get(index: String): T = this[getPlayerExact(index)!!]
+    operator fun get(index: String): T = this[Players[index]!!]
 }

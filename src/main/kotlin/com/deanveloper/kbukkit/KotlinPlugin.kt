@@ -8,7 +8,10 @@ import org.bukkit.plugin.java.JavaPluginLoader
 /**
  * @author Dean
  */
-open class KotlinPlugin : JavaPlugin {
+abstract class KotlinPlugin : JavaPlugin {
+
+    constructor() : super()
+
     /**
      * Used for tests
      */

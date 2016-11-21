@@ -136,6 +136,6 @@
     </distributionManagement>
 
     <properties>
-        <kotlin.version>1.0.4</kotlin.version>
+        <kotlin.version>1.0.5-2</kotlin.version>
     </properties>
 </project>

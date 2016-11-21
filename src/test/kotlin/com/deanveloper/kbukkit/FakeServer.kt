@@ -102,7 +102,10 @@ object FakeServer : Server {
 
     override fun broadcastMessage(string: String): Int {
         var i = 0
-        players.forEach { it.sendMessage(string) }
+        players.forEach {
+            it.sendMessage(string)
+            i++
+        }
         return i
     }
 

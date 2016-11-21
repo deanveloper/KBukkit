@@ -4,6 +4,7 @@ import net.md_5.bungee.api.ChatColor
 import net.md_5.bungee.api.chat.*
 import org.junit.Before
 import org.junit.Test
+import java.util.*
 import kotlin.test.assertEquals
 
 /**
@@ -20,6 +21,8 @@ class ChatComponentTest {
         var component: TextComponent
         var built: TextComponent
         
+        
+        // Test basic functionality
         component = TextComponent("hi!")
         component.color = ChatColor.GREEN
         component.isBold = true
@@ -32,6 +35,7 @@ class ChatComponentTest {
         }
     
         assertEquals(component.toString(), built.toString())
+        
         
         // let's get more complicated
         component = TextComponent("Start ")
@@ -57,5 +61,14 @@ class ChatComponentTest {
         }
         
         assertEquals(component.toString(), built.toString())
+        
+        
+        // Now let's test to see if arrays work too
+        val arr = ComponentBuilder("The quick brown fox").color(ChatColor.GREEN).append(" jumps over the lazy dog").color(ChatColor.WHITE).create()
+        val test = textComponent("The quick brown fox") {
+            color = ChatColor.GREEN
+        } + textComponent(" jumps over the lazy dog")
+        
+        assertEquals(Arrays.toString(arr), Arrays.toString(test))
     }
 }

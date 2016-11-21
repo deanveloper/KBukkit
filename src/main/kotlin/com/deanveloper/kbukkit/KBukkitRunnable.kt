@@ -5,6 +5,10 @@ import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
 /**
+ * @author Dean B <dean@deanveloper.com>
+ */
+
+/**
  * Run a task on the main thread
  */
 fun runTask(plugin: Plugin, toRun: BukkitRunnable.() -> Unit): BukkitTask {

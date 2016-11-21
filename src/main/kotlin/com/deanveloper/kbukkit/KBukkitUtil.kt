@@ -26,13 +26,13 @@ import java.util.*
 import java.util.logging.Logger
 
 /**
- * @author Dean
+ * @author Dean B <dean@deanveloper.com>
  */
 
 /**
  * The [Server] singleton
  */
-@set:Deprecated("Do not set the server instance unless you know what you're doing!", level = DeprecationLevel.WARNING)
+@set:Deprecated("Do not set the server instance unless you know what you're doing!")
 var SERVER: Server
     get() = Bukkit.getServer()
     set(value) = Bukkit.setServer(value)
@@ -262,6 +262,7 @@ object Worlds {
      *
      * @return a new ChunkData for the world
      */
+    @JvmStatic
     fun createChunkData(world: World): ChunkGenerator.ChunkData {
         return SERVER.createChunkData(world)
     }
@@ -275,6 +276,7 @@ object Commands {
      * @param name the name of the command to retrieve
      * @return a plugin command if found, null otherwise
      */
+    @JvmStatic
     operator fun get(name: String) = getPluginCommand(name)
 
     /**
@@ -283,6 +285,7 @@ object Commands {
      * @param name the name of the command to retrieve
      * @return a plugin command if found, null otherwise
      */
+    @JvmStatic
     fun getPluginCommand(name: String): PluginCommand? = SERVER.getPluginCommand(name)
 
     /**
@@ -293,7 +296,7 @@ object Commands {
      * @return false if no target is found
      * @throws CommandException thrown when the executor for the given command fails with an unhandled exception
      */
-    @Throws(CommandException::class)
+    @[JvmStatic Throws(CommandException::class)]
     fun dispatch(sender: CommandSender, cmdLine: String): Boolean = SERVER.dispatchCommand(sender, cmdLine)
 
     /**
@@ -301,6 +304,7 @@ object Commands {
      *
      * @return a map of aliases to command names
      */
+    @JvmStatic
     val commandAliases: Map<String, Array<String>>
         get() = SERVER.commandAliases
 }
@@ -487,7 +491,7 @@ object ServerFavicon {
  * permission name.
  *
  * @param message message to broadcast
- * @param permission the required permission [permissibles][Permissible] must have to receive the broadcast
+ * @param permission the required permission a [permissible][org.bukkit.permissions.Permissible] must have to receive the broadcast
  *
  * @return number of message recipients
  */

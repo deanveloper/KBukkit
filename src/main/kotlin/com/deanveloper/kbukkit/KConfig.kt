@@ -18,7 +18,7 @@ import kotlin.reflect.KClass
  *
  * @property[plugin]    Your plugin
  * @property[fileName]  The file name of your config.
- * @author Dean Bassett
+ * @author Dean B <dean@deanveloper.com>
  */
 class KConfig(val plugin: Plugin, val fileName: String) {
 
@@ -47,6 +47,15 @@ class KConfig(val plugin: Plugin, val fileName: String) {
             |listOfInts:
             |  - 3
             |  - 2
+            |testObject:
+            |  integer: 5
+            |  double: 0.5
+            |  string: 'this is a string as well'
+            |  boolean: false
+            |  listOfInts:
+            |    -  4
+            |    -  78
+            |    -  123
             """.trimMargin())
         } else {
             this.configFile = File(plugin.dataFolder!!, fileName)
@@ -59,13 +68,10 @@ class KConfig(val plugin: Plugin, val fileName: String) {
     operator fun get(path: String): Any? = config[path, null]
 
     @Suppress("UNCHECKED_CAST")
-    operator fun <T> get(path: String, def: T) = config[path, def]!! as T
+    operator fun <T> get(path: String, def: T) = config[path, def] as? T ?: throw IllegalAccessException("$path does not conform to the given type!")
 
     @Suppress("UNCHECKED_CAST")
-    operator fun <T : Any> get(path: String, type: KClass<T>) = config[path, null]!! as T
-
-    @Suppress("UNCHECKED_CAST")
-    operator fun <T : Any> get(path: String, type: KClass<T>, def: T) = config[path, def]!! as T
+    operator fun <T : Any> get(path: String, type: KClass<T>) = config[path, null] as? T ?: throw IllegalAccessException("$path does not exist as a $type!")
 
     operator fun set(path: String, value: Any?): KConfig {
         config[path] = value
@@ -106,4 +112,3 @@ class KConfig(val plugin: Plugin, val fileName: String) {
         return config.toString()
     }
 }
-

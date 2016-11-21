@@ -6,8 +6,8 @@ import kotlin.test.assertEquals
 
 /**
  * KBukkitRunnable tester
-
- * @author Dean Bassett
+ *
+ * @author Dean B <dean@deanveloper.com>
  */
 class KBukkitRunnableTest {
     @Before

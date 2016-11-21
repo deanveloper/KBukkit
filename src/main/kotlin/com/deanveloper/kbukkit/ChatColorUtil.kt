@@ -6,7 +6,7 @@ import net.md_5.bungee.api.ChatColor as BungeeColor
 /**
  * Adding a color to a string
  *
- * @author Dean
+ * @author Dean B <dean@deanveloper.com>
  */
 operator fun BukkitColor.plus(s: String): String = this.toString() + s
 operator fun BungeeColor.plus(s: String): String = this.toString() + s

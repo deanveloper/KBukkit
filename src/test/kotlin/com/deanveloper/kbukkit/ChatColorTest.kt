@@ -6,7 +6,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 /**
- * @author Dean
+ * @author Dean B <dean@deanveloper.com>
  */
 class ChatColorTest {
     @Before

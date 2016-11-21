@@ -6,7 +6,7 @@ import java.util.*
 /**
  * API for players through delegation
  *
- * @author Dean B
+ * @author Dean B <dean@deanveloper.com>
  */
 open class CustomPlayer protected constructor(player: Player) : Player by player {
     companion object : CustomPlayerCompanion<CustomPlayer>(::CustomPlayer)

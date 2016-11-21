@@ -8,7 +8,7 @@ import org.bukkit.plugin.java.JavaPluginLoader
 /**
  * Plugin class created for testing purposes
  *
- * @author Dean Bassett
+ * @author Dean B <dean@deanveloper.com>
  */
 class KBukkitPlugin : KotlinPlugin {
     companion object {

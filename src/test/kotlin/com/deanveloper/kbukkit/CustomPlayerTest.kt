@@ -7,7 +7,7 @@ import org.junit.Test
 /**
  * Tests the CustomPlayer class
  *
- * @author Dean B
+ * @author Dean B <dean@deanveloper.com>
  */
 class CustomPlayerTest {
     @Before

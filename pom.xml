@@ -6,7 +6,7 @@
 
     <groupId>com.deanveloper</groupId>
     <artifactId>KBukkit</artifactId>
-    <version>1.1.6</version>
+    <version>1.1.7</version>
 
     <repositories>
         <repository>
@@ -61,6 +61,14 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jcenter</id>
+            <name>JCenter</name>
+            <url>https://jcenter.bintray.com/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <sourceDirectory>src/main/kotlin</sourceDirectory>
@@ -140,23 +148,33 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
-    </build>
 
-    <reporting>
-        <outputDirectory>${project.basedir}/docs/</outputDirectory>
-        <plugins>
-            <!-- Javadoc Plugin -->
+            <!-- Dokka (KDoc) Plugin -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <groupId>org.jetbrains.dokka</groupId>
+                <artifactId>dokka-maven-plugin</artifactId>
+                <version>0.9.13</version>
                 <configuration>
-                    <reportOutputDirectory>${project.basedir}/docs/</reportOutputDirectory>
+                    <sourceLinks>
+                        <link>
+                            <dir>${project.basedir}/src/main/kotlin</dir>
+                            <url>http://github.com/Deanveloper/KBukkit</url>
+                        </link>
+                    </sourceLinks>
+                    <outputDirectory>${project.basedir}/docs</outputDirectory>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>dokka</goal>
+                            <goal>javadoc</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
-    </reporting>
+    </build>
 
     <distributionManagement>
         <repository>

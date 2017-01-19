@@ -1,7 +1,7 @@
 package com.deanveloper.kbukkit
 
-import org.bukkit.ChatColor as BukkitColor
 import net.md_5.bungee.api.ChatColor as BungeeColor
+import org.bukkit.ChatColor as BukkitColor
 
 /**
  * Provides utilities for adding colors to other colors.

@@ -1,6 +1,11 @@
 package com.deanveloper.kbukkit
 
 import org.bukkit.entity.Player
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
+import org.bukkit.event.player.PlayerJoinEvent
+import org.bukkit.event.player.PlayerQuitEvent
+import org.bukkit.plugin.Plugin
 import java.util.*
 
 /**
@@ -11,8 +16,8 @@ import java.util.*
  *
  * @author Dean B <dean@deanveloper.com>
  */
-open class CustomPlayer protected constructor(val bukkitPlayer: Player) : Player by bukkitPlayer {
-    companion object : CustomPlayerCompanion<CustomPlayer>(::CustomPlayer)
+open class CustomPlayer protected constructor(var bukkitPlayer: Player) : Player by bukkitPlayer {
+    // companion object : CustomPlayerCompanion<CustomPlayer>(::CustomPlayer, plugin)
 }
 
 /**
@@ -21,9 +26,13 @@ open class CustomPlayer protected constructor(val bukkitPlayer: Player) : Player
  *
  * Usage -> companion object : CustomPlayerCompanion<YourImpl>(::YourImpl)
  */
-open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
-    protected val idMap = WeakHashMap<UUID, T>()
-    protected val nameMap = WeakHashMap<String, T>()
+open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T, plugin: Plugin) : Listener {
+    protected val idMap = mutableMapOf<UUID, T>()
+    protected val nameMap = mutableMapOf<String, T>()
+
+    init {
+        this.registerEvents(plugin)
+    }
 
     /**
      * Fetches the CustomPlayer instance.
@@ -35,12 +44,12 @@ open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
             val player = idMap[bPlayer.uniqueId]!!
 
             if (player.bukkitPlayer !== bPlayer) {
-                return put(bPlayer)
+                return update(bPlayer)
             }
 
             return player
         } else {
-            return put(bPlayer)
+            return update(bPlayer)
         }
     }
 
@@ -67,10 +76,23 @@ open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
         return if(player === null) null else this[player]
     }
 
-    protected fun put(bPlayer: Player): T {
-        val player = factory(bPlayer)
+    protected fun update(bPlayer: Player): T {
+        val player = idMap[bPlayer.uniqueId] ?: factory(bPlayer)
+        player.bukkitPlayer = bPlayer
+
         idMap[bPlayer.uniqueId] = player
         nameMap[bPlayer.name] = player
         return player
+    }
+
+    @EventHandler
+    fun onJoin(e: PlayerJoinEvent) {
+        update(e.player)
+    }
+
+    @EventHandler
+    fun onLeave(e: PlayerQuitEvent) {
+        idMap.remove(e.player.uniqueId)
+        nameMap.remove(e.player.name)
     }
 }

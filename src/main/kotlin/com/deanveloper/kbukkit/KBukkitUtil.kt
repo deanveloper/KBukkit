@@ -11,6 +11,7 @@ import org.bukkit.command.CommandException
 import org.bukkit.command.CommandSender
 import org.bukkit.command.PluginCommand
 import org.bukkit.entity.Player
+import org.bukkit.event.Listener
 import org.bukkit.event.inventory.InventoryType
 import org.bukkit.event.server.ServerListPingEvent
 import org.bukkit.generator.ChunkGenerator
@@ -18,6 +19,7 @@ import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.InventoryHolder
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.Recipe
+import org.bukkit.plugin.Plugin
 import org.bukkit.scoreboard.ScoreboardManager
 import org.bukkit.util.CachedServerIcon
 import java.awt.image.BufferedImage
@@ -98,6 +100,9 @@ val LOGGER: Logger
  */
 val scoreboardManager: ScoreboardManager
     get() = SERVER.scoreboardManager
+
+
+fun Listener.registerEvents(plugin: Plugin) = SERVER.pluginManager.registerEvents(this, plugin)
 
 /**
  * A series of methods that are unsafe and should be used minimally.

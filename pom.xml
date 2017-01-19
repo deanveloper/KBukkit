@@ -6,7 +6,7 @@
 
     <groupId>com.deanveloper</groupId>
     <artifactId>KBukkit</artifactId>
-    <version>1.1.5</version>
+    <version>1.1.6</version>
 
     <repositories>
         <repository>
@@ -146,7 +146,6 @@
     <reporting>
         <outputDirectory>${project.basedir}/docs/</outputDirectory>
         <plugins>
-
             <!-- Javadoc Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -103,6 +103,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -142,6 +143,22 @@
         </plugins>
     </build>
 
+    <reporting>
+        <outputDirectory>${project.basedir}/docs/</outputDirectory>
+        <plugins>
+
+            <!-- Javadoc Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <configuration>
+                    <reportOutputDirectory>${project.basedir}/docs/</reportOutputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
+
     <distributionManagement>
         <repository>
             <id>bintray-deanveloper-KBukkit</id>
@@ -153,16 +170,4 @@
     <properties>
         <kotlin.version>1.0.6</kotlin.version>
     </properties>
-
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
-                <configuration>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
 </project>

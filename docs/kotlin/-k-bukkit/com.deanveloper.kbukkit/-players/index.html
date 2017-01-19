@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Players - KBukkit</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">KBukkit</a>&nbsp;/&nbsp;<a href="../index.html">com.deanveloper.kbukkit</a>&nbsp;/&nbsp;<a href=".">Players</a><br/>
+<br/>
+<h1>Players</h1>
+<code><span class="keyword">object </span><span class="identifier">Players</span></code>
+<p>A group of static functions that deal with players.</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="all.html">all</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">all</span><span class="symbol">: </span><span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">OfflinePlayer</span><span class="symbol">&gt;</span></code>
+<p>Gets every player that has ever played on this server.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="online.html">online</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">online</span><span class="symbol">: </span><span class="identifier">Collection</span><span class="symbol">&lt;</span><span class="identifier">Player</span><span class="symbol">&gt;</span></code>
+<p>Gets a view of all currently logged in players. This <a href="#">Collection</a> is a reused
+object, making some operations like <a href="#">Collection.size</a>
+zero-allocation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="operators.html">operators</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">operators</span><span class="symbol">: </span><span class="identifier">Set</span><span class="symbol">&lt;</span><span class="identifier">OfflinePlayer</span><span class="symbol">&gt;</span></code>
+<p>Gets a set containing all player operators.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><s><span class="identifier">get</span></s><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Players$get(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Player</span><span class="symbol">?</span></code>
+<p>Gets the player with the exact given name, case insensitive.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Players$get(java.util.UUID)/uuid">uuid</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Player</span><span class="symbol">?</span></code>
+<p>Gets the player with the given <a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html">UUID</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-offline-player.html">getOfflinePlayer</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getOfflinePlayer</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Players$getOfflinePlayer(java.util.UUID)/id">id</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">OfflinePlayer</span><span class="symbol">?</span></code>
+<p>Gets the player by the given UUID, regardless if they are offline or
+online.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-player.html">getPlayer</a></td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">getPlayer</span></s><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Players$getPlayer(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Player</span><span class="symbol">?</span></code>
+<p>Gets a player object by the given username.</p>
+<code><span class="keyword">fun </span><span class="identifier">getPlayer</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Players$getPlayer(java.util.UUID)/id">id</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Player</span><span class="symbol">?</span></code>
+<p>Gets the player with the given UUID.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-player-exact.html">getPlayerExact</a></td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">getPlayerExact</span></s><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Players$getPlayerExact(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Player</span><span class="symbol">?</span></code>
+<p>Gets the player with the exact given name, case insensitive.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="match-player.html">matchPlayer</a></td>
+<td>
+<code><span class="keyword">fun </span><s><span class="identifier">matchPlayer</span></s><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Players$matchPlayer(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">List</span><span class="symbol">&lt;</span><span class="identifier">Player</span><span class="symbol">&gt;</span></code>
+<p>Attempts to match any players with the given name, and returns a list
+of all possibly matches.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="save-players.html">savePlayers</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">savePlayers</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Writes loaded players to disk.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

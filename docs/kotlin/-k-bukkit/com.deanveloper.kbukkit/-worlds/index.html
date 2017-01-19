@@ -1,0 +1,68 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Worlds - KBukkit</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">KBukkit</a>&nbsp;/&nbsp;<a href="../index.html">com.deanveloper.kbukkit</a>&nbsp;/&nbsp;<a href=".">Worlds</a><br/>
+<br/>
+<h1>Worlds</h1>
+<code><span class="keyword">object </span><span class="identifier">Worlds</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="worlds.html">worlds</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">worlds</span><span class="symbol">: </span><span class="identifier">List</span><span class="symbol">&lt;</span><span class="identifier">World</span><span class="symbol">&gt;</span></code>
+<p>Gets a list of all worlds on this server.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="create.html">create</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$create(org.bukkit.WorldCreator)/creator">creator</span><span class="symbol">:</span>&nbsp;<span class="identifier">WorldCreator</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">World</span></code>
+<p>Creates or loads a world with the given name using the specified
+options.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="create-chunk-data.html">createChunkData</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">createChunkData</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$createChunkData(org.bukkit.World)/world">world</span><span class="symbol">:</span>&nbsp;<span class="identifier">World</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ChunkData</span></code>
+<p>Create a ChunkData for use in a generator.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$get(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">World</span><span class="symbol">?</span></code>
+<p>Gets the world with the given name.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$get(java.util.UUID)/uid">uid</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">World</span><span class="symbol">?</span></code>
+<p>Gets the world from the given Unique ID.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="unload.html">unload</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">unload</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$unload(kotlin.String, kotlin.Boolean)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$unload(kotlin.String, kotlin.Boolean)/save">save</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Unloads a world with the given name.</p>
+<code><span class="keyword">fun </span><span class="identifier">unload</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$unload(org.bukkit.World, kotlin.Boolean)/world">world</span><span class="symbol">:</span>&nbsp;<span class="identifier">World</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.Worlds$unload(org.bukkit.World, kotlin.Boolean)/save">save</span><span class="symbol">:</span>&nbsp;<span class="identifier">Boolean</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Unloads the given world.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

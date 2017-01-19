@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CustomPlayerCompanion - KBukkit</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">KBukkit</a>&nbsp;/&nbsp;<a href="../index.html">com.deanveloper.kbukkit</a>&nbsp;/&nbsp;<a href=".">CustomPlayerCompanion</a><br/>
+<br/>
+<h1>CustomPlayerCompanion</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">CustomPlayerCompanion</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-custom-player/index.html"><span class="identifier">CustomPlayer</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Listener</span></code>
+<p>This class, while not required, provides utility in your
+CustomPlayer implementation's companion object.</p>
+<p>Usage -&gt; companion object : CustomPlayerCompanion(::YourImpl)</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">CustomPlayerCompanion</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$<init>(kotlin.Function1((org.bukkit.entity.Player, com.deanveloper.kbukkit.CustomPlayerCompanion.T)), org.bukkit.plugin.Plugin)/factory">factory</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Player</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$<init>(kotlin.Function1((org.bukkit.entity.Player, com.deanveloper.kbukkit.CustomPlayerCompanion.T)), org.bukkit.plugin.Plugin)/plugin">plugin</span><span class="symbol">:</span>&nbsp;<span class="identifier">Plugin</span><span class="symbol">)</span></code>
+<p>This class, while not required, provides utility in your
+CustomPlayer implementation's companion object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="factory.html">factory</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">factory</span><span class="symbol">: </span><span class="symbol">(</span><span class="identifier">Player</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="id-map.html">idMap</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">idMap</span><span class="symbol">: </span><span class="identifier">MutableMap</span><span class="symbol">&lt;</span><a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="name-map.html">nameMap</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">nameMap</span><span class="symbol">: </span><span class="identifier">MutableMap</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$get(org.bukkit.entity.Player)/bPlayer">bPlayer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Player</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Fetches the CustomPlayer instance.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$get(java.util.UUID)/index">index</span><span class="symbol">:</span>&nbsp;<a href="http://docs.oracle.com/javase/6/docs/api/java/util/UUID.html"><span class="identifier">UUID</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code>
+<p>Fetches the CustomPlayer instance from a UUID.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><s><span class="identifier">get</span></s><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$get(kotlin.String)/index">index</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span><span class="symbol">?</span></code>
+<p>Fetches the CustomPlayer instance from a name.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="on-join.html">onJoin</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onJoin</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$onJoin(org.bukkit.event.player.PlayerJoinEvent)/e">e</span><span class="symbol">:</span>&nbsp;<span class="identifier">PlayerJoinEvent</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="on-leave.html">onLeave</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onLeave</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$onLeave(org.bukkit.event.player.PlayerQuitEvent)/e">e</span><span class="symbol">:</span>&nbsp;<span class="identifier">PlayerQuitEvent</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+<tr>
+<td>
+<a href="update.html">update</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">update</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.CustomPlayerCompanion$update(org.bukkit.entity.Player)/bPlayer">bPlayer</span><span class="symbol">:</span>&nbsp;<span class="identifier">Player</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="../org.bukkit.event.-listener/register-events.html">registerEvents</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Listener</span><span class="symbol">.</span><span class="identifier">registerEvents</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit$registerEvents(org.bukkit.event.Listener, org.bukkit.plugin.Plugin)/plugin">plugin</span><span class="symbol">:</span>&nbsp;<span class="identifier">Plugin</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

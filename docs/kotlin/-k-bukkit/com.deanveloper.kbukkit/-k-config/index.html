@@ -1,0 +1,130 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KConfig - KBukkit</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">KBukkit</a>&nbsp;/&nbsp;<a href="../index.html">com.deanveloper.kbukkit</a>&nbsp;/&nbsp;<a href=".">KConfig</a><br/>
+<br/>
+<h1>KConfig</h1>
+<code><span class="keyword">class </span><span class="identifier">KConfig</span></code>
+<p>API for YAML configurations, based on MrZoraman's config API.</p>
+<p>Modifications: Now in Kotlin, added methods to get values
+from the config without needing to do getConfig(), and used
+Kotlin null-safety features to make it easier to use.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="-init-.html">&lt;init&gt;</a></td>
+<td>
+<code><span class="identifier">KConfig</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$<init>(org.bukkit.plugin.Plugin, kotlin.String)/plugin">plugin</span><span class="symbol">:</span>&nbsp;<span class="identifier">Plugin</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$<init>(org.bukkit.plugin.Plugin, kotlin.String)/fileName">fileName</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span></code>
+<p>API for YAML configurations, based on MrZoraman's config API.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="config.html">config</a></td>
+<td>
+<code><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">config</span><span class="symbol">: </span><span class="identifier">FileConfiguration</span></code>
+<p>The <a href="#">FileConfiguration</a> representation of this instance.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="config-file.html">configFile</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">configFile</span><span class="symbol">: </span><a href="http://docs.oracle.com/javase/6/docs/api/java/io/File.html"><span class="identifier">File</span></a></code>
+<p>The <a href="http://docs.oracle.com/javase/6/docs/api/java/io/File.html">java.io.File</a> representation of this instance.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="file-name.html">fileName</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">fileName</span><span class="symbol">: </span><span class="identifier">String</span></code>
+<p>The file name of your config.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="plugin.html">plugin</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">plugin</span><span class="symbol">: </span><span class="identifier">Plugin</span></code>
+<p>Your plugin</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$get(kotlin.String)/path">path</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Any</span><span class="symbol">?</span></code>
+<p>Gets the value at a specified <a href="get.html#com.deanveloper.kbukkit.KConfig$get(kotlin.String)/path">path</a>, null if none.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$get(kotlin.String, com.deanveloper.kbukkit.KConfig.get.T)/path">path</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$get(kotlin.String, com.deanveloper.kbukkit.KConfig.get.T)/def">def</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Gets the value at <a href="get.html#com.deanveloper.kbukkit.KConfig$get(kotlin.String, com.deanveloper.kbukkit.KConfig.get.T)/path">path</a>, <a href="get.html#com.deanveloper.kbukkit.KConfig$get(kotlin.String, com.deanveloper.kbukkit.KConfig.get.T)/def">def</a> if none.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">&gt;</span> <span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$get(kotlin.String, kotlin.reflect.KClass((com.deanveloper.kbukkit.KConfig.get.T)))/path">path</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$get(kotlin.String, kotlin.reflect.KClass((com.deanveloper.kbukkit.KConfig.get.T)))/type">type</span><span class="symbol">:</span>&nbsp;<span class="identifier">KClass</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Gets the value at <a href="get.html#com.deanveloper.kbukkit.KConfig$get(kotlin.String, kotlin.reflect.KClass((com.deanveloper.kbukkit.KConfig.get.T)))/path">path</a> with return type <a href="#">T</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="reload.html">reload</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">reload</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Reloads the config from file.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="save.html">save</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">save</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Saves the config to file.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="save-default.html">saveDefault</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">saveDefault</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Unit</span></code>
+<p>Saves the default values of the config if they are not specified.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="set.html">set</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">set</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$set(kotlin.String, kotlin.Any)/path">path</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.KConfig$set(kotlin.String, kotlin.Any)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Any</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">KConfig</span></code>
+<p>Sets the value at <a href="set.html#com.deanveloper.kbukkit.KConfig$set(kotlin.String, kotlin.Any)/path">path</a> to <a href="set.html#com.deanveloper.kbukkit.KConfig$set(kotlin.String, kotlin.Any)/value">value</a></p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="to-string.html">toString</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">String</span></code>
+<p>String representation of the config.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="unary-plus.html">unaryPlus</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><s><span class="identifier">unaryPlus</span></s><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">KConfig</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

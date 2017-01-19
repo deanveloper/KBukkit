@@ -12,21 +12,8 @@ open class CustomPlayer protected constructor(player: Player) : Player by player
     companion object : CustomPlayerCompanion<CustomPlayer>(::CustomPlayer)
 }
 
-open class CustomPlayerCompanion<T : CustomPlayer>(val factory: (Player) -> T) {
-    protected val idMap = WeakHashMap<UUID, T>()
-    protected val nameMap = WeakHashMap<String, T>()
-
-    operator fun get(player: Player): T {
-        if(player.uniqueId in idMap) {
-            return idMap[player.uniqueId]!!
-        } else {
-            val custom = factory(player)
-            idMap[player.uniqueId] = custom
-            nameMap[player.name] = custom
-
-            return custom
-        }
-    }
+open class CustomPlayerCompanion<out T : CustomPlayer>(val factory: (Player) -> T) {
+    operator fun get(player: Player): T = factory(player)
 
     operator fun get(index: UUID): T = this[Players[index]!!]
 

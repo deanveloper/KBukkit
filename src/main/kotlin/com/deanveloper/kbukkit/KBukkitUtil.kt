@@ -26,6 +26,8 @@ import java.util.*
 import java.util.logging.Logger
 
 /**
+ * The Bukkit static class organized into classes.
+ *
  * @author Dean B <dean@deanveloper.com>
  */
 
@@ -37,6 +39,75 @@ var SERVER: Server
     get() = Bukkit.getServer()
     set(value) = Bukkit.setServer(value)
 
+/**
+ * Broadcasts the specified message to every user with the given
+ * permission name.
+ *
+ * @param message message to broadcast
+ * @param permission the required permission a [permissible][org.bukkit.permissions.Permissible] must have to receive the broadcast
+ *
+ * @return number of message recipients
+ */
+fun broadcast(message: String, permission: String = Server.BROADCAST_CHANNEL_USERS): Int {
+    return SERVER.broadcast(message, permission)
+}
+
+/**
+ * Creates a boss bar instance to display to players. The progress
+ * defaults to 1.0
+ *
+ * @param title the title of the boss bar
+ * @param color the color of the boss bar
+ * @param style the style of the boss bar
+ * @param flags an optional list of flags to set on the boss bar
+ *
+ * @return the created boss bar
+ */
+fun createBossBar(title: String, color: BarColor, style: BarStyle, vararg flags: BarFlag): BossBar {
+    return SERVER.createBossBar(title, color, style, *flags)
+}
+
+/**
+ * Checks the current thread against the expected primary thread for the
+ * server.
+ *
+ * Note: this method should not be used to indicate the current
+ * synchronized state of the runtime. A current thread matching the main
+ * thread indicates that it is synchronized, but a mismatch does not
+ * preclude the same assumption.
+ *
+ * @return true if the current thread matches the expected primary thread, false otherwise
+ */
+val isPrimaryThread: Boolean
+    get() = SERVER.isPrimaryThread
+
+/**
+ * Returns the primary logger associated with this server instance.
+ *
+ * @return Logger associated with this server
+ */
+val LOGGER: Logger
+    get() = SERVER.logger
+
+/**
+ * Gets the instance of the scoreboard manager.
+ *
+ * This will only exist after the first world has loaded.
+ *
+ * @return the scoreboard manager or null if no worlds are loaded.
+ */
+val scoreboardManager: ScoreboardManager
+    get() = SERVER.scoreboardManager
+
+/**
+ * A series of methods that are unsafe and should be used minimally.
+ */
+val UNSAFE: UnsafeValues
+    get() = SERVER.unsafe
+
+/**
+ * A group of static functions that pertain to the server whitelist.
+ */
 object Whitelist {
     /**
      * Gets whether this server has a whitelist or not.
@@ -64,6 +135,9 @@ object Whitelist {
     fun reload() = SERVER.reloadWhitelist()
 }
 
+/**
+ * A group of static functions that deal with players.
+ */
 object Players {
     /**
      * Gets the player with the exact given name, case insensitive.
@@ -485,66 +559,3 @@ object ServerFavicon {
     @[JvmStatic Throws(IllegalArgumentException::class, Exception::class)]
     fun loadServerIcon(image: BufferedImage): CachedServerIcon = SERVER.loadServerIcon(image)
 }
-
-/**
- * Broadcasts the specified message to every user with the given
- * permission name.
- *
- * @param message message to broadcast
- * @param permission the required permission a [permissible][org.bukkit.permissions.Permissible] must have to receive the broadcast
- *
- * @return number of message recipients
- */
-fun broadcast(message: String, permission: String = Server.BROADCAST_CHANNEL_USERS): Int {
-    return SERVER.broadcast(message, permission)
-}
-
-/**
- * Creates a boss bar instance to display to players. The progress
- * defaults to 1.0
- *
- * @param title the title of the boss bar
- * @param color the color of the boss bar
- * @param style the style of the boss bar
- * @param flags an optional list of flags to set on the boss bar
- *
- * @return the created boss bar
- */
-fun createBossBar(title: String, color: BarColor, style: BarStyle, vararg flags: BarFlag): BossBar {
-    return SERVER.createBossBar(title, color, style, *flags)
-}
-
-/**
- * Checks the current thread against the expected primary thread for the
- * server.
- *
- * Note: this method should not be used to indicate the current
- * synchronized state of the runtime. A current thread matching the main
- * thread indicates that it is synchronized, but a mismatch does not
- * preclude the same assumption.
- *
- * @return true if the current thread matches the expected primary thread, false otherwise
- */
-val isPrimaryThread: Boolean
-    get() = SERVER.isPrimaryThread
-
-/**
- * Returns the primary logger associated with this server instance.
- *
- * @return Logger associated with this server
- */
-val LOGGER: Logger
-    get() = SERVER.logger
-
-/**
- * Gets the instance of the scoreboard manager.
- *
- * This will only exist after the first world has loaded.
- *
- * @return the scoreboard manager or null if no worlds are loaded.
- */
-val scoreboardManager: ScoreboardManager
-    get() = SERVER.scoreboardManager
-
-val UNSAFE: UnsafeValues
-    get() = SERVER.unsafe

@@ -6,6 +6,8 @@ It compiles into Java, which means that you can interact with the Bukkit and Spi
 Kotlin has tons of features that Java doesn't have, so I made a neat library that uses some of the features
 that Kotlin has to offer.
 
+Also, I've spent quite a bit of time to make this library, so leaving a :star: would mean a ton!
+
 ## Features
 * ChatColor addition
   * In Java, if you do `ChatColor.BOLD + ChatColor.BLUE`, you get an error.

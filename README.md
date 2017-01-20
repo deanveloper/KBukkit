@@ -49,5 +49,5 @@ I'd really appreciate any donations, even anything as small as a pack of ramen!
 [extension functions]: https://kotlinlang.org/docs/reference/extensions.html
 [Kotlin's delegation pattern]: https://kotlinlang.org/docs/reference/delegation.html
 [javadoc]: https://kbukkit.deanveloper.com
-[paypal]: PayPal.Me/Dean98/5USD
+[paypal]: https://PayPal.Me/Dean98/5USD
 [TornadoFX]: https://github.com/edvin/tornadofx/wiki/Type-Safe-Builders

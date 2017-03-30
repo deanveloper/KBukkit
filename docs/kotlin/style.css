@@ -108,7 +108,7 @@ th, td {
 }
 
 tr + tr {
-    border-top: dashed black;
+    border-top: 1px dashed black;
 }
 
 dt {

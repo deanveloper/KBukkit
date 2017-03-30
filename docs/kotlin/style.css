@@ -117,7 +117,7 @@ th {
 }
 
 tr + tr {
-    border-top: 1px dashed black;
+    border-top: 1px solid #AAAAAA;
 }
 
 img {

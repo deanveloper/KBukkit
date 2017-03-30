@@ -12,29 +12,29 @@ import org.bukkit.ChatColor as BukkitColor
 /**
  * Adds a color to a string.
  */
-operator fun org.bukkit.ChatColor.plus(s: String): String = this.toString() + s
+operator fun BukkitColor.plus(s: String): String = this.toString() + s
 
 /**
  * Adds a color to a string.
  */
-operator fun net.md_5.bungee.api.ChatColor.plus(s: String): String = this.toString() + s
+operator fun BungeeColor.plus(s: String): String = this.toString() + s
 
 /**
  * Adds a color to another color.
  */
-operator fun org.bukkit.ChatColor.plus(color: org.bukkit.ChatColor): String = this.toString() + color
+operator fun BukkitColor.plus(color: BukkitColor): String = this.toString() + color
 
 /**
  * Adds a color to another color.
  */
-operator fun net.md_5.bungee.api.ChatColor.plus(color: org.bukkit.ChatColor): String = this.toString() + color
+operator fun BungeeColor.plus(color: BukkitColor): String = this.toString() + color
 
 /**
  * Adds a color to another color.
  */
-operator fun org.bukkit.ChatColor.plus(color: net.md_5.bungee.api.ChatColor): String = this.toString() + color
+operator fun BukkitColor.plus(color: BungeeColor): String = this.toString() + color
 
 /**
  * Adds a color to another color.
  */
-operator fun net.md_5.bungee.api.ChatColor.plus(color: net.md_5.bungee.api.ChatColor): String = this.toString() + color
+operator fun BungeeColor.plus(color: BungeeColor): String = this.toString() + color

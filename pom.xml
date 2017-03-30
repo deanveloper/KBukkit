@@ -6,7 +6,7 @@
 
     <groupId>com.deanveloper</groupId>
     <artifactId>KBukkit</artifactId>
-    <version>1.1.7</version>
+    <version>1.1.8</version>
 
     <repositories>
         <repository>
@@ -161,7 +161,7 @@
                             <url>http://github.com/Deanveloper/KBukkit</url>
                         </link>
                     </sourceLinks>
-                    <outputDirectory>${project.basedir}/docs</outputDirectory>
+                    <outputDir>${project.basedir}/docs</outputDir>
                 </configuration>
                 <executions>
                     <execution>
@@ -185,6 +185,6 @@
     </distributionManagement>
 
     <properties>
-        <kotlin.version>1.0.6</kotlin.version>
+        <kotlin.version>1.1.1</kotlin.version>
     </properties>
 </project>

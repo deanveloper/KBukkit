@@ -161,7 +161,7 @@
                             <url>http://github.com/Deanveloper/KBukkit</url>
                         </link>
                     </sourceLinks>
-                    <outputDir>${project.basedir}/docs</outputDir>
+                    <outputDir>${project.basedir}/docs/output</outputDir>
                 </configuration>
                 <executions>
                     <execution>

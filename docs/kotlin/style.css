@@ -107,6 +107,10 @@ th, td {
     padding:5px 10px;
 }
 
+tr + tr {
+    border-top: dashed black;
+}
+
 dt {
     color:#444;
     font-weight:700;

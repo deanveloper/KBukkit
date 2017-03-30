@@ -6,7 +6,7 @@
 
     <groupId>com.deanveloper</groupId>
     <artifactId>KBukkit</artifactId>
-    <version>1.1.8</version>
+    <version>1.2</version>
 
     <repositories>
         <repository>

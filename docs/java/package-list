@@ -1,1 +1,5 @@
 com.deanveloper.kbukkit
+com.deanveloper.kbukkit.chat
+com.deanveloper.kbukkit.config
+com.deanveloper.kbukkit.player
+com.deanveloper.kbukkit.util

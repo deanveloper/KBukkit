@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Commands.dispatch - KBukkit</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">KBukkit</a>&nbsp;/&nbsp;<a href="../index.html">com.deanveloper.kbukkit.util</a>&nbsp;/&nbsp;<a href="index.html">Commands</a>&nbsp;/&nbsp;<a href=".">dispatch</a><br/>
+<br/>
+<h1>dispatch</h1>
+<a name="com.deanveloper.kbukkit.util.Commands$dispatch(org.bukkit.command.CommandSender, kotlin.String)"></a>
+<code><span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">dispatch</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.util.Commands$dispatch(org.bukkit.command.CommandSender, kotlin.String)/sender">sender</span><span class="symbol">:</span>&nbsp;<span class="identifier">CommandSender</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.util.Commands$dispatch(org.bukkit.command.CommandSender, kotlin.String)/cmdLine">cmdLine</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Dispatches a command on this server, and executes it if found.</p>
+<h3>Parameters</h3>
+
+<p><a name="sender"></a>
+<code>sender</code> - the apparent sender of the command
+<p><a name="cmdLine"></a>
+<code>cmdLine</code> - the command + arguments. Example: <code>test abc 123</code>
+<h3>Exceptions</h3>
+
+<p><a name="CommandException"></a>
+<code>CommandException</code> - thrown when the executor for the given command fails with an unhandled exception
+<p><strong>Return</strong><br/>
+false if no target is found</p>
+</BODY>
+</HTML>

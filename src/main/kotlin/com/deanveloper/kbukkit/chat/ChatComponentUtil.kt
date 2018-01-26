@@ -16,14 +16,14 @@ import net.md_5.bungee.api.chat.TranslatableComponent
  * of the component from inside a block of code.
  */
 inline fun textComponent(text: String = "", cb: TextComponent.() -> Unit): TextComponent {
-    return TextComponent(text).apply { cb() }
+	return TextComponent(text).apply { cb() }
 }
 
 /**
  * Creates a text component.
  */
 fun textComponent(text: String): TextComponent {
-    return TextComponent(text)
+	return TextComponent(text)
 }
 
 /**
@@ -31,14 +31,14 @@ fun textComponent(text: String): TextComponent {
  * of the component from inside a block of code.
  */
 inline fun translatableComponent(translatable: String, cb: TranslatableComponent.() -> Unit): TranslatableComponent {
-    return TranslatableComponent(translatable).apply { cb() }
+	return TranslatableComponent(translatable).apply { cb() }
 }
 
 /**
  * Creates a translatable component.
  */
 fun translatableComponent(text: String): TranslatableComponent {
-    return TranslatableComponent(text)
+	return TranslatableComponent(text)
 }
 
 @JvmOverloads
@@ -46,26 +46,26 @@ fun translatableComponent(text: String): TranslatableComponent {
  * Utility function to add "extra" text to a component.
  */
 inline fun BaseComponent.addExtraText(text: String = "", cb: TextComponent.() -> Unit) {
-    addExtra(TextComponent(text).apply { cb() })
+	addExtra(TextComponent(text).apply { cb() })
 }
 
 /**
  * Utility function to add "extra" as a translatable to a component.
  */
 inline fun BaseComponent.addExtraTranslate(text: String, cb: TranslatableComponent.() -> Unit) {
-    addExtra(TranslatableComponent(text).apply { cb() })
+	addExtra(TranslatableComponent(text).apply { cb() })
 }
 
 /**
  * Utility function to add BaseComponents together to form an array
  */
 operator fun BaseComponent.plus(base: BaseComponent): Array<BaseComponent> {
-    return arrayOf(this, base)
+	return arrayOf(this, base)
 }
 
 /**
  * Utility function to add BaseComponents together to form an array
  */
 operator fun BaseComponent.plus(base: Array<BaseComponent>): Array<BaseComponent> {
-    return arrayOf(this, *base)
+	return arrayOf(this, *base)
 }

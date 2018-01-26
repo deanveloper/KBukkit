@@ -3,6 +3,7 @@
 package com.deanveloper.kbukkit.util
 
 import org.bukkit.*
+import org.bukkit.advancement.Advancement
 import org.bukkit.boss.BarColor
 import org.bukkit.boss.BarFlag
 import org.bukkit.boss.BarStyle
@@ -565,3 +566,10 @@ object ServerFavicon {
 	fun loadServerIcon(image: BufferedImage): CachedServerIcon = SERVER.loadServerIcon(image)
 }
 
+object Advancements : Iterable<Advancement> {
+
+	operator fun get(key: NamespacedKey) = SERVER.getAdvancement(key) ?: null
+
+	override fun iterator(): Iterator<Advancement> = SERVER.advancementIterator()
+
+}

@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Commands - KBukkit</title>
+<link rel="stylesheet" href="..\..\..\style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">KBukkit</a>&nbsp;/&nbsp;<a href="../index.html">com.deanveloper.kbukkit.util</a>&nbsp;/&nbsp;<a href=".">Commands</a><br/>
+<br/>
+<h1>Commands</h1>
+<code><span class="keyword">object </span><span class="identifier">Commands</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="command-aliases.html">commandAliases</a></td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">commandAliases</span><span class="symbol">: </span><span class="identifier">Map</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">,</span>&nbsp;<span class="identifier">Array</span><span class="symbol">&lt;</span><span class="identifier">String</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code>
+<p>Gets a list of command aliases defined in the server properties.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<a href="dispatch.html">dispatch</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">dispatch</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.util.Commands$dispatch(org.bukkit.command.CommandSender, kotlin.String)/sender">sender</span><span class="symbol">:</span>&nbsp;<span class="identifier">CommandSender</span><span class="symbol">, </span><span class="identifier" id="com.deanveloper.kbukkit.util.Commands$dispatch(org.bukkit.command.CommandSender, kotlin.String)/cmdLine">cmdLine</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Boolean</span></code>
+<p>Dispatches a command on this server, and executes it if found.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get.html">get</a></td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">get</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.util.Commands$get(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PluginCommand</span><span class="symbol">?</span></code>
+<p>Gets a <a href="#">PluginCommand</a> with the given name or alias.</p>
+</td>
+</tr>
+<tr>
+<td>
+<a href="get-plugin-command.html">getPluginCommand</a></td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">getPluginCommand</span><span class="symbol">(</span><span class="identifier" id="com.deanveloper.kbukkit.util.Commands$getPluginCommand(kotlin.String)/name">name</span><span class="symbol">:</span>&nbsp;<span class="identifier">String</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PluginCommand</span><span class="symbol">?</span></code>
+<p>Gets a <a href="#">PluginCommand</a> with the given name or alias.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>
